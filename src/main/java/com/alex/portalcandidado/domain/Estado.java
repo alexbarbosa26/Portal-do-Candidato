@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,8 +27,8 @@ public class Estado implements Serializable {
 	private List<Cidade> cidades = new ArrayList<>();
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="estado_emissor_ct")
-	private List<Documentos> documentos=new ArrayList<>();
+	@OneToOne(mappedBy="estado_emissor_ct")
+	private Documentos documentos;
 	
 	public Estado() {}
 
@@ -60,12 +61,12 @@ public class Estado implements Serializable {
 	public void setCidades(List<Cidade> cidades) {
 		this.cidades = cidades;
 	}
-
-	public List<Documentos> getDocumentos() {
+	
+	public Documentos getDocumentos() {
 		return documentos;
 	}
 
-	public void setDocumentos(List<Documentos> documentos) {
+	public void setDocumentos(Documentos documentos) {
 		this.documentos = documentos;
 	}
 

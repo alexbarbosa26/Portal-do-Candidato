@@ -8,7 +8,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import com.alex.portalcandidado.enums.TipoSimNao;
@@ -36,7 +35,7 @@ public class Documentos implements Serializable {
 	private String serie;
 	private Date data_emissao_ct;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="estado_emissor_cod")
 	private Estado estado_emissor_ct;
 	
