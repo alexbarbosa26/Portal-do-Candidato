@@ -25,6 +25,10 @@ public class Estado implements Serializable {
 	@OneToMany(mappedBy="estado")
 	private List<Cidade> cidades = new ArrayList<>();
 	
+	@JsonIgnore
+	@OneToMany(mappedBy="estado_emissor_ct")
+	private List<Documentos> documentos=new ArrayList<>();
+	
 	public Estado() {}
 
 	public Estado(Integer codigo, String nome) {
@@ -55,6 +59,14 @@ public class Estado implements Serializable {
 
 	public void setCidades(List<Cidade> cidades) {
 		this.cidades = cidades;
+	}
+
+	public List<Documentos> getDocumentos() {
+		return documentos;
+	}
+
+	public void setDocumentos(List<Documentos> documentos) {
+		this.documentos = documentos;
 	}
 
 	@Override

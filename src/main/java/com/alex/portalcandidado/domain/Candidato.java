@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import com.alex.portalcandidado.enums.EstadoCivil;
 
@@ -38,6 +40,12 @@ public class Candidato implements Serializable {
 	
 	@OneToMany(mappedBy="candidato")
 	private List<Endereco> endereco = new ArrayList<>();
+	
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="candidato")
+	private Documentos documentos;
+	
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="candidato")
+	private DadosPessoais dadosPessoais;
 	
 	public Candidato() {
 		
@@ -134,6 +142,22 @@ public class Candidato implements Serializable {
 
 	public void setTelefones(Set<String> telefones) {
 		this.telefones = telefones;
+	}
+
+	public Documentos getDocumentos() {
+		return documentos;
+	}
+
+	public void setDocumentos(Documentos documentos) {
+		this.documentos = documentos;
+	}
+
+	public DadosPessoais getDadosPessoais() {
+		return dadosPessoais;
+	}
+
+	public void setDadosPessoais(DadosPessoais dadosPessoais) {
+		this.dadosPessoais = dadosPessoais;
 	}
 
 	@Override
