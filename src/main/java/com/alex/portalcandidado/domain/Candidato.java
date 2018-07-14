@@ -47,6 +47,12 @@ public class Candidato implements Serializable {
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="candidato")
 	private DadosPessoais dadosPessoais;
 	
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="candidato")
+	private FormacaoEducacional educacional;
+	
+	@OneToOne(cascade=CascadeType.ALL,mappedBy="candidato")
+	private OutrosCursos cursos;
+	
 	public Candidato() {
 		
 	}
@@ -158,6 +164,22 @@ public class Candidato implements Serializable {
 
 	public void setDadosPessoais(DadosPessoais dadosPessoais) {
 		this.dadosPessoais = dadosPessoais;
+	}
+	
+	public FormacaoEducacional getEducacional() {
+		return educacional;
+	}
+
+	public void setEducacional(FormacaoEducacional educacional) {
+		this.educacional = educacional;
+	}
+
+	public OutrosCursos getCursos() {
+		return cursos;
+	}
+
+	public void setCursos(OutrosCursos cursos) {
+		this.cursos = cursos;
 	}
 
 	@Override
