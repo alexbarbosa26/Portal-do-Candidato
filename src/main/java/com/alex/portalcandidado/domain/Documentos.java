@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 import com.alex.portalcandidado.enums.TipoSimNao;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -21,6 +22,8 @@ public class Documentos implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;
 	private String rg;
+	
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date data_emissao_rg;
 	private String orgao_emissor_rg;
 	private String titulo_eleitor;
@@ -33,7 +36,10 @@ public class Documentos implements Serializable {
 	private String categoria;
 	private String carteira_trab;
 	private String serie;
+	
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date data_emissao_ct;
+	
 	
 	@OneToOne
 	@JoinColumn(name="estado_emissor_cod")

@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class OutrosCursos implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -21,6 +23,7 @@ public class OutrosCursos implements Serializable {
 	private String qual_idioma;
 	private String outros_cursos;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="candidato_cod")
 	private Candidato candidato;

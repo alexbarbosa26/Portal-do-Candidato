@@ -10,6 +10,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class FormacaoEducacional implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -18,15 +21,22 @@ public class FormacaoEducacional implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;
 	private String inst_ensino_medio;
+	
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date conclusao_ens_med;
 	private String nome_curso_tec;
 	private String inst_graduacao_sup;
+	
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date conclusao_previsao_sup;
 	private String nome_curso_sup;
 	private String inst_pos_graduacao;
+	
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date conclusao_previsao_pos;
 	private String nome_curso_pos;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn(name="candidato_cod")
 	private Candidato candidato;

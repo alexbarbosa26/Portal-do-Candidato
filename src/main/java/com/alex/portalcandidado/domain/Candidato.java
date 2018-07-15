@@ -18,6 +18,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import com.alex.portalcandidado.enums.EstadoCivil;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Candidato implements Serializable {
@@ -29,6 +30,8 @@ public class Candidato implements Serializable {
 	private String nome;
 	private String email;
 	private String raca;
+	
+	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date data_nascimento;
 	private String idade;
 	private String naturalidade;
@@ -52,6 +55,12 @@ public class Candidato implements Serializable {
 	
 	@OneToOne(cascade=CascadeType.ALL,mappedBy="candidato")
 	private OutrosCursos cursos;
+	
+	@OneToOne(cascade=CascadeType.ALL, mappedBy="candidato")
+	private ExperienciaProfissional experiencia;
+	
+	@OneToOne(cascade=CascadeType.ALL,mappedBy="candidato")
+	private CondicoesAdmissao condicoes;
 	
 	public Candidato() {
 		
@@ -180,6 +189,22 @@ public class Candidato implements Serializable {
 
 	public void setCursos(OutrosCursos cursos) {
 		this.cursos = cursos;
+	}	
+
+	public ExperienciaProfissional getExperiencia() {
+		return experiencia;
+	}
+
+	public void setExperiencia(ExperienciaProfissional experiencia) {
+		this.experiencia = experiencia;
+	}
+
+	public CondicoesAdmissao getCondicoes() {
+		return condicoes;
+	}
+
+	public void setCondicoes(CondicoesAdmissao condicoes) {
+		this.condicoes = condicoes;
 	}
 
 	@Override

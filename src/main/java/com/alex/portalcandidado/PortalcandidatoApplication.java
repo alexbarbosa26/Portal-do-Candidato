@@ -10,21 +10,26 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.alex.portalcandidado.domain.Candidato;
 import com.alex.portalcandidado.domain.Cidade;
+import com.alex.portalcandidado.domain.CondicoesAdmissao;
 import com.alex.portalcandidado.domain.DadosPessoais;
 import com.alex.portalcandidado.domain.Documentos;
 import com.alex.portalcandidado.domain.Endereco;
 import com.alex.portalcandidado.domain.Estado;
+import com.alex.portalcandidado.domain.ExperienciaProfissional;
 import com.alex.portalcandidado.domain.FormacaoEducacional;
 import com.alex.portalcandidado.domain.OutrosCursos;
 import com.alex.portalcandidado.enums.EstadoCivil;
 import com.alex.portalcandidado.enums.TipoSimNao;
 import com.alex.portalcandidado.repositories.CandidatoRepository;
 import com.alex.portalcandidado.repositories.CidadeRepository;
+import com.alex.portalcandidado.repositories.CondicoesRepository;
 import com.alex.portalcandidado.repositories.DadosPessoaisRepository;
 import com.alex.portalcandidado.repositories.DocumentosRepository;
 import com.alex.portalcandidado.repositories.EnderecoRepository;
 import com.alex.portalcandidado.repositories.EstadoRepository;
+import com.alex.portalcandidado.repositories.ExperienciaRepository;
 import com.alex.portalcandidado.repositories.FormacaoEducacionalRepository;
+import com.alex.portalcandidado.repositories.OutrosCursosRepository;
 
 @SpringBootApplication
 public class PortalcandidatoApplication implements CommandLineRunner{
@@ -52,6 +57,12 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 	
 	@Autowired
 	private  OutrosCursosRepository repoCrusos;
+	
+	@Autowired
+	private ExperienciaRepository repoExp;
+	
+	@Autowired
+	private CondicoesRepository repoCond;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(PortalcandidatoApplication.class, args);
@@ -85,7 +96,8 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 		Documentos doc1 = new Documentos(null, "59.792.668-2", date.parse("09/04/2015"), "SSPSP", "123556340515", "177", "0184", TipoSimNao.SIM, "16021112270", "051.113.335-92", "181042050920", "Dispensado", "042435", "00377-SP", date.parse("12/04/2010"), est2, cand1);
 		FormacaoEducacional fe1=new FormacaoEducacional(null, "Colegio Estadual de Piripá", date.parse("09/12/2010"), null, "Universidade Nove de Julho", date.parse("09/12/2012"), "Tecnologia em Analise e desenvolvimento de sistemas", null, null, null, cand1);
 		OutrosCursos oc1 = new OutrosCursos(null, "Excel, Word, Internet, Power Point", "Sim", "Ingles Intermediario", null, cand1);
-		
+		ExperienciaProfissional exp1 = new ExperienciaProfissional(null, "TIVIT", "Doutor Julio Maranhão, 1098", "(81) 3974-7800", "Coordenador de TI", "2013 à 2016", 3500.00, cand1);
+		CondicoesAdmissao cond1=new CondicoesAdmissao(null, "Gerente de TI", 4000.00, TipoSimNao.SIM, TipoSimNao.NAO, cand1);
 		cand1.getEndereco().addAll(Arrays.asList(end1));
 						
 		repoCandidato.save(Arrays.asList(cand1));
@@ -94,6 +106,8 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 		repoDoc.save(Arrays.asList(doc1));
 		repoFormacao.save(Arrays.asList(fe1));
 		repoCrusos.save(Arrays.asList(oc1));
+		repoExp.save(Arrays.asList(exp1));
+		repoCond.save(Arrays.asList(cond1));
 		
 		//--------------------------------------------------------------
 	}
