@@ -7,34 +7,49 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
+import com.alex.portalcandidado.domain.Candidato;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class CandidatoDTO implements Serializable{
+public class CandidatoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer codigo;
-	@NotEmpty(message="Preenchimento obrigatório")
-	@Length(min=5, max=150, message="Deve conter entre 5 e 150 caracteres")
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	@Length(min = 5, max = 150, message = "Deve conter entre 5 e 150 caracteres")
 	private String nome;
-	@NotEmpty(message="Preenchimento obrigatório")
-	@Email(message="E-mail inválido")
-	private String email;	
-	@NotEmpty(message="Preenchimento obrigatório")
-	private String raca;	
-	@NotEmpty(message="Preenchimento obrigatório")
-	private Date data_nascimento;	
-	@NotEmpty(message="Preenchimento obrigatório")
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	@Email(message = "E-mail inválido")
+	private String email;
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String raca;
+	
+	private Date data_nascimento;
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String idade;
-	@NotEmpty(message="Preenchimento obrigatório")
+	
+	@NotEmpty(message = "Preenchimento obrigatório")
 	private String naturalidade;
-	@NotEmpty(message="Preenchimento obrigatório")
-	private Integer estado_civil;
 	
-	private String telefone1;
-	private String telefone2;
-	private String telefone3;
-	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String estado_civil;
+
 	public CandidatoDTO() {
-		
+
+	}
+
+	public CandidatoDTO(Candidato obj) {
+		codigo = obj.getCodigo();
+		nome = obj.getNome();
+		email = obj.getEmail();
+		raca = obj.getRaca();
+		data_nascimento = obj.getData_nascimento();
+		idade = obj.getIdade();
+		naturalidade = obj.getNaturalidade();
+		estado_civil = obj.getEstado_civil().getDescricao();
 	}
 
 	public Integer getCodigo() {
@@ -93,38 +108,11 @@ public class CandidatoDTO implements Serializable{
 		this.naturalidade = naturalidade;
 	}
 
-	public Integer getEstado_civil() {
+	public String getEstado_civil() {
 		return estado_civil;
 	}
 
-	public void setEstado_civil(Integer estado_civil) {
+	public void setEstado_civil(String estado_civil) {
 		this.estado_civil = estado_civil;
 	}
-
-	public String getTelefone1() {
-		return telefone1;
-	}
-
-	public void setTelefone1(String telefone1) {
-		this.telefone1 = telefone1;
-	}
-
-	public String getTelefone2() {
-		return telefone2;
-	}
-
-	public void setTelefone2(String telefone2) {
-		this.telefone2 = telefone2;
-	}
-
-	public String getTelefone3() {
-		return telefone3;
-	}
-
-	public void setTelefone3(String telefone3) {
-		this.telefone3 = telefone3;
-	}
-	
-	
-
 }
