@@ -3,6 +3,7 @@ package com.alex.portalcandidado.domain;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,19 +22,28 @@ public class Documentos implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;
+	
+	@Column(unique=true)
 	private String rg;
 	
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date data_emissao_rg;
 	private String orgao_emissor_rg;
+	
+	@Column(unique=true)
 	private String titulo_eleitor;
 	private String zona;
 	private String secao;
 	private Integer pis_pasep;
+	@Column(unique=true)
 	private String numero_pis;
+	
+	@Column(unique=true)
 	private String cpf;
+	@Column(unique=true)
 	private String numero_reservista;
 	private String categoria;
+	@Column(unique=true)
 	private String carteira_trab;
 	private String serie;
 	

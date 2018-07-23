@@ -8,7 +8,8 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import com.alex.portalcandidado.domain.Candidato;
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.alex.portalcandidado.dto.validation.CustomerDateAndTimeDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 public class CandidatoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -26,6 +27,8 @@ public class CandidatoDTO implements Serializable {
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String raca;
 	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	@JsonDeserialize(using=CustomerDateAndTimeDeserialize.class)
 	private Date data_nascimento;
 	
 	@NotEmpty(message = "Preenchimento obrigatório")

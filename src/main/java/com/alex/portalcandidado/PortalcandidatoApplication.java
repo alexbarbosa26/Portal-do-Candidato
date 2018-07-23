@@ -101,7 +101,7 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 		DadosPessoais dp2=new DadosPessoais(null, "Indique um amigo: Fernanda", date.parse("16/07/2018"), "Jose Geraldo dos Santos", "Ana Kelly dos Santos", TipoSimNao.NAO, null, "2", 6.40, "Onibus itermunicipal", "Integral", TipoSimNao.NAO, TipoSimNao.NAO, null, TipoSimNao.NAO, null, TipoSimNao.NAO, null, null, null, TipoSimNao.NAO, null, TipoSimNao.NAO, null, cand2);
 		
 		Documentos doc1 = new Documentos(null, "59.792.668-2", date.parse("09/04/2015"), "SSPSP", "123556340515", "177", "0184", TipoSimNao.SIM, "16021112270", "051.113.335-92", "181042050920", "Dispensado", "042435", "00377-SP", date.parse("12/04/2010"), est2, cand1);
-		Documentos doc2 = new Documentos(null, "59.792.668-2", date.parse("09/04/2015"), "SSPSP", "123556340515", "177", "0184", TipoSimNao.SIM, "16021112270", "051.113.335-92", "181042050920", "Dispensado", "042435", "00377-SP", date.parse("12/04/2010"), est1, cand2);
+		Documentos doc2 = new Documentos(null, "59.792.668-3", date.parse("09/04/2015"), "SSPSP", "123556340516", "177", "0184", TipoSimNao.SIM, "16021112271", "051.113.335-93", "181042050921", "Dispensado", "042436", "00377-SP", date.parse("12/04/2010"), est1, cand2);
 		
 		FormacaoEducacional fe1=new FormacaoEducacional(null, "Colegio Estadual de Piripá", date.parse("09/12/2010"), null, "Universidade Nove de Julho", date.parse("09/12/2012"), "Tecnologia em Analise e desenvolvimento de sistemas", null, null, null, cand1);
 		FormacaoEducacional fe2=new FormacaoEducacional(null, "Colegio Estadual de Recife", date.parse("09/12/2010"), null, "Universidade Estadul de Pernambuco", date.parse("09/12/2016"), "Tecnologia em Analise e desenvolvimento de sistemas", null, null, null, cand2);

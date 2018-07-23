@@ -25,7 +25,8 @@ public class CandidatoService {
 	}
 	
 	public Candidato fromDTO(CandidatoDTO objDto) {
-		return new Candidato(objDto.getCodigo(), objDto.getNome(), objDto.getEmail(), objDto.getRaca(), objDto.getData_nascimento(), objDto.getIdade(), objDto.getNaturalidade(), null);
+		return new Candidato(objDto.getCodigo(), objDto.getNome(), objDto.getEmail(), objDto.getRaca(), null, objDto.getIdade(), objDto.getNaturalidade(), null);
+		
 	}
 
 }

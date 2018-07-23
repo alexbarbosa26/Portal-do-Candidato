@@ -33,7 +33,6 @@ public class CandidatoResource {
 		return ResponseEntity.ok().body(list);
 	}
 	
-	
 	@RequestMapping(method=RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody CandidatoDTO objDto){
 		
