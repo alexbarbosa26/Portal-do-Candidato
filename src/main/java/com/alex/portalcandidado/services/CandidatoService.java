@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.alex.portalcandidado.domain.Candidato;
 import com.alex.portalcandidado.dto.CandidatoDTO;
+import com.alex.portalcandidado.enums.EstadoCivil;
 import com.alex.portalcandidado.repositories.CandidatoRepository;
 
 @Service
@@ -25,7 +26,30 @@ public class CandidatoService {
 	}
 	
 	public Candidato fromDTO(CandidatoDTO objDto) {
-		return new Candidato(objDto.getCodigo(), objDto.getNome(), objDto.getEmail(), objDto.getRaca(), null, objDto.getIdade(), objDto.getNaturalidade(), null);
+		Candidato cand = new Candidato(
+				null,
+				objDto.getNome(),
+				objDto.getEmail(),
+				objDto.getRaca(),
+				objDto.getData_nascimento(),
+				objDto.getIdade(),
+				objDto.getNaturalidade(),
+				EstadoCivil.toEnum(objDto.getEstado_civil())
+				);
+		
+		cand.getTelefones().add(objDto.getTelefone1());
+		
+		if(objDto.getTelefone2()!=null) {
+			cand.getTelefones().add(objDto.getTelefone2());
+		}
+		if(objDto.getTelefone3()!=null) {
+			cand.getTelefones().add(objDto.getTelefone3());
+		}
+		if(objDto.getTelefone4()!=null) {
+			cand.getTelefones().add(objDto.getTelefone4());
+		}
+		
+		return cand;
 		
 	}
 

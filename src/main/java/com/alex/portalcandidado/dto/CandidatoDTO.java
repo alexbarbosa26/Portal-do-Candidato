@@ -7,7 +7,6 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.alex.portalcandidado.domain.Candidato;
 import com.alex.portalcandidado.dto.validation.CustomerDateAndTimeDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
@@ -27,7 +26,6 @@ public class CandidatoDTO implements Serializable {
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String raca;
 	
-	@NotEmpty(message = "Preenchimento obrigatório")
 	@JsonDeserialize(using=CustomerDateAndTimeDeserialize.class)
 	private Date data_nascimento;
 	
@@ -37,22 +35,16 @@ public class CandidatoDTO implements Serializable {
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String naturalidade;
 	
+	private Integer estado_civil;
+	
 	@NotEmpty(message = "Preenchimento obrigatório")
-	private String estado_civil;
-
+	private String Telefone1;	
+	private String Telefone2;
+	private String Telefone3;
+	private String Telefone4;
+	
 	public CandidatoDTO() {
 
-	}
-
-	public CandidatoDTO(Candidato obj) {
-		codigo = obj.getCodigo();
-		nome = obj.getNome();
-		email = obj.getEmail();
-		raca = obj.getRaca();
-		data_nascimento = obj.getData_nascimento();
-		idade = obj.getIdade();
-		naturalidade = obj.getNaturalidade();
-		estado_civil = obj.getEstado_civil().getDescricao();
 	}
 
 	public Integer getCodigo() {
@@ -111,11 +103,45 @@ public class CandidatoDTO implements Serializable {
 		this.naturalidade = naturalidade;
 	}
 
-	public String getEstado_civil() {
+	public Integer getEstado_civil() {
 		return estado_civil;
 	}
 
-	public void setEstado_civil(String estado_civil) {
+	public void setEstado_civil(Integer estado_civil) {
 		this.estado_civil = estado_civil;
 	}
+
+	public String getTelefone1() {
+		return Telefone1;
+	}
+
+	public void setTelefone1(String telefone1) {
+		Telefone1 = telefone1;
+	}
+
+	public String getTelefone2() {
+		return Telefone2;
+	}
+
+	public void setTelefone2(String telefone2) {
+		Telefone2 = telefone2;
+	}
+
+	public String getTelefone3() {
+		return Telefone3;
+	}
+
+	public void setTelefone3(String telefone3) {
+		Telefone3 = telefone3;
+	}
+
+	public String getTelefone4() {
+		return Telefone4;
+	}
+
+	public void setTelefone4(String telefone4) {
+		Telefone4 = telefone4;
+	}
+	
+	
 }

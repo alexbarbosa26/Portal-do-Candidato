@@ -15,10 +15,9 @@ public class CustomerDateAndTimeDeserialize extends JsonDeserializer<Date> {
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 
     @Override
-    public Date deserialize(JsonParser paramJsonParser,
-            DeserializationContext paramDeserializationContext)
-            throws IOException, JsonProcessingException {
-        String str = paramJsonParser.getText().trim();
+    public Date deserialize(JsonParser paramJsonParser, DeserializationContext paramDeserializationContext)throws IOException, JsonProcessingException {
+       
+    	String str = paramJsonParser.getText().trim();
         try {
             return dateFormat.parse(str);
         } catch (ParseException e) {
