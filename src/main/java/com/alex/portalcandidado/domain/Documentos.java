@@ -22,14 +22,11 @@ public class Documentos implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codigo;
-	
 	@Column(unique=true)
-	private String rg;
-	
+	private String rg;	
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date data_emissao_rg;
 	private String orgao_emissor_rg;
-	
 	@Column(unique=true)
 	private String titulo_eleitor;
 	private String zona;
@@ -37,7 +34,6 @@ public class Documentos implements Serializable {
 	private Integer pis_pasep;
 	@Column(unique=true)
 	private String numero_pis;
-	
 	@Column(unique=true)
 	private String cpf;
 	@Column(unique=true)

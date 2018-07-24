@@ -85,7 +85,7 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 		
 		repoEstado.save(Arrays.asList(est1,est2));
 		repoCidade.save(Arrays.asList(cid1,cid2));
-		
+		/*
 		//--------------------------------------------------------------
 		
 		Candidato cand1 = new Candidato(null, "Alex Barbosa da Silva", "abarbosasilva7@gmail.com", "Branco", date.parse("26/11/1990"), "27", "Brasileiro", EstadoCivil.SOLTEIRO);
@@ -126,7 +126,7 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 		repoCrusos.save(Arrays.asList(oc1,oc2));
 		repoExp.save(Arrays.asList(exp1,exp2));
 		repoCond.save(Arrays.asList(cond1,cond2));
-		
+		*/
 		//--------------------------------------------------------------
 	}
 }

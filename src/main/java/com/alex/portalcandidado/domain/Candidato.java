@@ -42,6 +42,7 @@ public class Candidato implements Serializable {
 	
 	@ElementCollection
 	@CollectionTable(name="TELEFONE")
+	@Column(unique=true)
 	private Set<String> telefones = new HashSet<>();
 	
 	@OneToMany(mappedBy="candidato")
