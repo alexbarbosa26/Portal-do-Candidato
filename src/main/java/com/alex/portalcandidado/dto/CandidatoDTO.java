@@ -89,6 +89,39 @@ public class CandidatoDTO implements Serializable {
 	private Date data_emissao_ct;
 	private Integer estado_emissor_cod;
 	
+	//-----------------------------------------------
+	
+	private String fonte_recrutamento;
+	@JsonDeserialize(using=CustomerDateAndTimeDeserialize.class)
+	private Date data_cadastro;
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String nome_pai;
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String nome_mae;
+	private Integer tem_filhos;
+	private String idade_filhos;
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String quantas_conducoes;
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private Double valor_conducao;
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String quais_conducoes;
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String disp_horario;
+	private Integer disp_sab_dom;
+	private Integer trab_neo_tvt_tel;
+	private String periodo_trab;
+	private Integer processo_neobpo;
+	private String qual_produto;
+	private Integer trabalhou_telemk;
+	private String tipo_telemk;
+	private String quanto_tempo;
+	private String quais_produtos;
+	private Integer parentes_neobpo;
+	private String nome_parentes;
+	private Integer portador_def;
+	private String qual_def;
+	
 	
 	//-----------------------------------------------
 	
@@ -358,6 +391,190 @@ public class CandidatoDTO implements Serializable {
 
 	public void setEstado_emissor_cod(Integer estado_emissor_cod) {
 		this.estado_emissor_cod = estado_emissor_cod;
+	}
+
+	public String getFonte_recrutamento() {
+		return fonte_recrutamento;
+	}
+
+	public void setFonte_recrutamento(String fonte_recrutamento) {
+		this.fonte_recrutamento = fonte_recrutamento;
+	}
+
+	public Date getData_cadastro() {
+		return data_cadastro;
+	}
+
+	public void setData_cadastro(Date data_cadastro) {
+		this.data_cadastro = data_cadastro;
+	}
+
+	public String getNome_pai() {
+		return nome_pai;
+	}
+
+	public void setNome_pai(String nome_pai) {
+		this.nome_pai = nome_pai;
+	}
+
+	public String getNome_mae() {
+		return nome_mae;
+	}
+
+	public void setNome_mae(String nome_mae) {
+		this.nome_mae = nome_mae;
+	}
+
+	public Integer getTem_filhos() {
+		return tem_filhos;
+	}
+
+	public void setTem_filhos(Integer tem_filhos) {
+		this.tem_filhos = tem_filhos;
+	}
+
+	public String getIdade_filhos() {
+		return idade_filhos;
+	}
+
+	public void setIdade_filhos(String idade_filhos) {
+		this.idade_filhos = idade_filhos;
+	}
+
+	public String getQuantas_conducoes() {
+		return quantas_conducoes;
+	}
+
+	public void setQuantas_conducoes(String quantas_conducoes) {
+		this.quantas_conducoes = quantas_conducoes;
+	}
+
+	public Double getValor_conducao() {
+		return valor_conducao;
+	}
+
+	public void setValor_conducao(Double valor_conducao) {
+		this.valor_conducao = valor_conducao;
+	}
+
+	public String getQuais_conducoes() {
+		return quais_conducoes;
+	}
+
+	public void setQuais_conducoes(String quais_conducoes) {
+		this.quais_conducoes = quais_conducoes;
+	}
+
+	public String getDisp_horario() {
+		return disp_horario;
+	}
+
+	public void setDisp_horario(String disp_horario) {
+		this.disp_horario = disp_horario;
+	}
+
+	public Integer getDisp_sab_dom() {
+		return disp_sab_dom;
+	}
+
+	public void setDisp_sab_dom(Integer disp_sab_dom) {
+		this.disp_sab_dom = disp_sab_dom;
+	}
+
+	public Integer getTrab_neo_tvt_tel() {
+		return trab_neo_tvt_tel;
+	}
+
+	public void setTrab_neo_tvt_tel(Integer trab_neo_tvt_tel) {
+		this.trab_neo_tvt_tel = trab_neo_tvt_tel;
+	}
+
+	public String getPeriodo_trab() {
+		return periodo_trab;
+	}
+
+	public void setPeriodo_trab(String periodo_trab) {
+		this.periodo_trab = periodo_trab;
+	}
+
+	public Integer getProcesso_neobpo() {
+		return processo_neobpo;
+	}
+
+	public void setProcesso_neobpo(Integer processo_neobpo) {
+		this.processo_neobpo = processo_neobpo;
+	}
+
+	public String getQual_produto() {
+		return qual_produto;
+	}
+
+	public void setQual_produto(String qual_produto) {
+		this.qual_produto = qual_produto;
+	}
+
+	public Integer getTrabalhou_telemk() {
+		return trabalhou_telemk;
+	}
+
+	public void setTrabalhou_telemk(Integer trabalhou_telemk) {
+		this.trabalhou_telemk = trabalhou_telemk;
+	}
+
+	public String getTipo_telemk() {
+		return tipo_telemk;
+	}
+
+	public void setTipo_telemk(String tipo_telemk) {
+		this.tipo_telemk = tipo_telemk;
+	}
+
+	public String getQuanto_tempo() {
+		return quanto_tempo;
+	}
+
+	public void setQuanto_tempo(String quanto_tempo) {
+		this.quanto_tempo = quanto_tempo;
+	}
+
+	public String getQuais_produtos() {
+		return quais_produtos;
+	}
+
+	public void setQuais_produtos(String quais_produtos) {
+		this.quais_produtos = quais_produtos;
+	}
+
+	public Integer getParentes_neobpo() {
+		return parentes_neobpo;
+	}
+
+	public void setParentes_neobpo(Integer parentes_neobpo) {
+		this.parentes_neobpo = parentes_neobpo;
+	}
+
+	public String getNome_parentes() {
+		return nome_parentes;
+	}
+
+	public void setNome_parentes(String nome_parentes) {
+		this.nome_parentes = nome_parentes;
+	}
+
+	public Integer getPortador_def() {
+		return portador_def;
+	}
+
+	public void setPortador_def(Integer portador_def) {
+		this.portador_def = portador_def;
+	}
+
+	public String getQual_def() {
+		return qual_def;
+	}
+
+	public void setQual_def(String qual_def) {
+		this.qual_def = qual_def;
 	}
 	
 	
