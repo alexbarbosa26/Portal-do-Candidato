@@ -101,8 +101,7 @@ public class CandidatoDTO implements Serializable {
 	private Integer tem_filhos;
 	private String idade_filhos;
 	@NotEmpty(message = "Preenchimento obrigatório")
-	private String quantas_conducoes;
-	@NotEmpty(message = "Preenchimento obrigatório")
+	private String quantas_conducoes;	
 	private Double valor_conducao;
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String quais_conducoes;
@@ -122,6 +121,22 @@ public class CandidatoDTO implements Serializable {
 	private Integer portador_def;
 	private String qual_def;
 	
+	//-----------------------------------------------
+	
+	private String inst_ensino_medio;
+	@JsonDeserialize(using=CustomerDateAndTimeDeserialize.class)
+	private Date conclusao_ens_med;
+	private String nome_curso_tec;
+	private String inst_graduacao_sup;
+	@JsonDeserialize(using=CustomerDateAndTimeDeserialize.class)
+	private Date conclusao_previsao_sup;
+	private String nome_curso_sup;
+	private String inst_pos_graduacao;
+	@JsonDeserialize(using=CustomerDateAndTimeDeserialize.class)
+	private Date conclusao_previsao_pos;
+	private String nome_curso_pos;
+	
+	//-----------------------------------------------
 	
 	//-----------------------------------------------
 	
@@ -575,6 +590,78 @@ public class CandidatoDTO implements Serializable {
 
 	public void setQual_def(String qual_def) {
 		this.qual_def = qual_def;
+	}
+
+	public String getInst_ensino_medio() {
+		return inst_ensino_medio;
+	}
+
+	public void setInst_ensino_medio(String inst_ensino_medio) {
+		this.inst_ensino_medio = inst_ensino_medio;
+	}
+
+	public Date getConclusao_ens_med() {
+		return conclusao_ens_med;
+	}
+
+	public void setConclusao_ens_med(Date conclusao_ens_med) {
+		this.conclusao_ens_med = conclusao_ens_med;
+	}
+
+	public String getNome_curso_tec() {
+		return nome_curso_tec;
+	}
+
+	public void setNome_curso_tec(String nome_curso_tec) {
+		this.nome_curso_tec = nome_curso_tec;
+	}
+
+	public String getInst_graduacao_sup() {
+		return inst_graduacao_sup;
+	}
+
+	public void setInst_graduacao_sup(String inst_graduacao_sup) {
+		this.inst_graduacao_sup = inst_graduacao_sup;
+	}
+
+	public Date getConclusao_previsao_sup() {
+		return conclusao_previsao_sup;
+	}
+
+	public void setConclusao_previsao_sup(Date conclusao_previsao_sup) {
+		this.conclusao_previsao_sup = conclusao_previsao_sup;
+	}
+
+	public String getNome_curso_sup() {
+		return nome_curso_sup;
+	}
+
+	public void setNome_curso_sup(String nome_curso_sup) {
+		this.nome_curso_sup = nome_curso_sup;
+	}
+
+	public String getInst_pos_graduacao() {
+		return inst_pos_graduacao;
+	}
+
+	public void setInst_pos_graduacao(String inst_pos_graduacao) {
+		this.inst_pos_graduacao = inst_pos_graduacao;
+	}
+
+	public Date getConclusao_previsao_pos() {
+		return conclusao_previsao_pos;
+	}
+
+	public void setConclusao_previsao_pos(Date conclusao_previsao_pos) {
+		this.conclusao_previsao_pos = conclusao_previsao_pos;
+	}
+
+	public String getNome_curso_pos() {
+		return nome_curso_pos;
+	}
+
+	public void setNome_curso_pos(String nome_curso_pos) {
+		this.nome_curso_pos = nome_curso_pos;
 	}
 	
 	

@@ -11,6 +11,7 @@ import com.alex.portalcandidado.domain.DadosPessoais;
 import com.alex.portalcandidado.domain.Documentos;
 import com.alex.portalcandidado.domain.Endereco;
 import com.alex.portalcandidado.domain.Estado;
+import com.alex.portalcandidado.domain.FormacaoEducacional;
 import com.alex.portalcandidado.dto.CandidatoDTO;
 import com.alex.portalcandidado.enums.EstadoCivil;
 import com.alex.portalcandidado.enums.TipoSimNao;
@@ -20,6 +21,7 @@ import com.alex.portalcandidado.repositories.DadosPessoaisRepository;
 import com.alex.portalcandidado.repositories.DocumentosRepository;
 import com.alex.portalcandidado.repositories.EnderecoRepository;
 import com.alex.portalcandidado.repositories.EstadoRepository;
+import com.alex.portalcandidado.repositories.FormacaoEducacionalRepository;
 
 @Service
 public class CandidatoService {
@@ -42,6 +44,10 @@ public class CandidatoService {
 	@Autowired
 	private DadosPessoaisRepository repoDados;
 	
+	@Autowired
+	private FormacaoEducacionalRepository repoEdu;
+	
+	//----------------------------------------------
 	public List<Candidato> findAll() {
 		return repo.findAll();
 	}
@@ -52,10 +58,11 @@ public class CandidatoService {
 		repoEndereco.save(obj.getEndereco());
 		repoDoc.save(obj.getDocumentos());
 		repoDados.save(obj.getDadosPessoais());
+		repoEdu.save(obj.getEducacional());
 		return repo.save(obj);
 	}
 	
-	//---------------------------------------------
+	
 	public Candidato fromDTO(CandidatoDTO objDto) {
 				
 		//-----------------------------------------
@@ -129,11 +136,24 @@ public class CandidatoService {
 				TipoSimNao.toEnum(objDto.getPortador_def()),
 				objDto.getQual_def(), cand);
 		//------------------------------------------
+		FormacaoEducacional edu=new FormacaoEducacional(
+				null,
+				objDto.getInst_ensino_medio(),
+				objDto.getConclusao_ens_med(),
+				objDto.getNome_curso_tec(),
+				objDto.getInst_graduacao_sup(),
+				objDto.getConclusao_previsao_sup(),
+				objDto.getNome_curso_sup(),
+				objDto.getInst_pos_graduacao(),
+				objDto.getConclusao_previsao_pos(),
+				objDto.getNome_curso_pos(), cand);
+		//------------------------------------------
 		cand.getTelefones().add(objDto.getTelefone1());
 		
 		cand.getEndereco().add(end);
 		cand.setDocumentos(doc);
-		cand.setDadosPessoais(da);		
+		cand.setDadosPessoais(da);
+		cand.setEducacional(edu);
 		
 		if(objDto.getTelefone2()!=null) {
 			cand.getTelefones().add(objDto.getTelefone2());
