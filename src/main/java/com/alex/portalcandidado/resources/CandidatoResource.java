@@ -31,23 +31,35 @@ public class CandidatoResource {
 
 		return ResponseEntity.ok().body(list);
 	}
-	
-	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<Void> insert(@Valid @RequestBody CandidatoDTO objDto){
-		
+
+	@RequestMapping(method = RequestMethod.POST)
+	public ResponseEntity<Void> insert(@Valid @RequestBody CandidatoDTO objDto) {
+
 		Candidato obj = service.fromDTO(objDto);
-		
+
 		obj = service.insert(obj);
-		
-		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-				.path("/{id}").buildAndExpand(obj.getCodigo()).toUri();
+
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getCodigo())
+				.toUri();
 		return ResponseEntity.created(uri).build();
 	}
-	
+
 	@RequestMapping(value = "/{cpf}/documentos", method = RequestMethod.GET)
-	public ResponseEntity<List<Candidato>> findCpf(@PathVariable String cpf){		
-		List<Candidato> obj = service.findCpf(cpf);		
-		return ResponseEntity.ok().body(obj);		
+	public ResponseEntity<List<Candidato>> findCpf(@PathVariable String cpf) {
+		List<Candidato> obj = service.findCpf(cpf);
+		return ResponseEntity.ok().body(obj);
 	}
-	
+
+	@RequestMapping(value = "/{cpf}/{rg}/{nome}/doc", method = RequestMethod.GET)
+	public ResponseEntity<List<Candidato>> findCriterios(@PathVariable String cpf, @PathVariable String rg, @PathVariable String nome) {
+
+		cpf = cpf.equals("uniformed") ? "" : cpf;
+		rg = rg.equals("uniformed") ? "" : rg;
+		nome = nome.equals("uniformed") ? "" : nome;
+		
+		List<Candidato> obj = service.findCriterios(cpf, rg, nome);
+
+		return ResponseEntity.ok().body(obj);
+	}
+
 }

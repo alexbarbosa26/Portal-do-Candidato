@@ -218,5 +218,10 @@ public class CandidatoService {
 		return repo.findCpf(cpf);
 	}
 	
+	public List<Candidato> findCriterios(String cpf, String rg, String nome){
+		
+		return repo.findCriterios(cpf, rg, nome);
+	}
+	
 
 }
