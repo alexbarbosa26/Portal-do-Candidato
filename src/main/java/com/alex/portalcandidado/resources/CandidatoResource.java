@@ -7,6 +7,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,9 +27,7 @@ public class CandidatoResource {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Candidato>> findAll() {
-
 		List<Candidato> list = service.findAll();
-		//List<CandidatoDTO> listDTO = list.stream().map(obj -> new CandidatoDTO(obj)).collect(Collectors.toList());
 
 		return ResponseEntity.ok().body(list);
 	}
@@ -43,6 +42,12 @@ public class CandidatoResource {
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
 				.path("/{id}").buildAndExpand(obj.getCodigo()).toUri();
 		return ResponseEntity.created(uri).build();
+	}
+	
+	@RequestMapping(value = "/{cpf}/documentos", method = RequestMethod.GET)
+	public ResponseEntity<List<Candidato>> findCpf(@PathVariable String cpf){		
+		List<Candidato> obj = service.findCpf(cpf);		
+		return ResponseEntity.ok().body(obj);		
 	}
 	
 }

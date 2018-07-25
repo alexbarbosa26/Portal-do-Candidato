@@ -208,10 +208,15 @@ public class CandidatoService {
 		}
 		if(objDto.getTelefone4()!=null) {
 			cand.getTelefones().add(objDto.getTelefone4());
-		}
-		
+		}		
 		return cand;
 		
 	}
+	
+	public List<Candidato> findCpf(String cpf){
+		
+		return repo.findCpf(cpf);
+	}
+	
 
 }
