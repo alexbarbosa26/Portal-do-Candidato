@@ -13,7 +13,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 public class CandidatoDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+	//-----------------------------------------------
 	@NotEmpty(message = "Preenchimento obrigatório")
 	@Length(min = 5, max = 150, message = "Deve conter entre 5 e 150 caracteres")
 	private String nome;
@@ -137,9 +137,23 @@ public class CandidatoDTO implements Serializable {
 	private String nome_curso_pos;
 	
 	//-----------------------------------------------
-	
+	private String conhece_infor;
+	private String conhece_idioma;
+	private String qual_idioma;
+	private String outros_cursos;
 	//-----------------------------------------------
-	
+	private String empresa_atual_ultima;
+	private String endereco;
+	private String telefone;
+	private String ultimo_cargo;
+	private String ultimo_periodo_trab;
+	private Double ultimo_Salario;
+	//-----------------------------------------------
+	private String cargo_pretendido;
+	private Double pretensao_salarial;
+	private Integer periodo_experiencia;
+	private Integer pagou_cont_sindical;
+	//-----------------------------------------------
 	public CandidatoDTO() {
 
 	}
@@ -663,8 +677,118 @@ public class CandidatoDTO implements Serializable {
 	public void setNome_curso_pos(String nome_curso_pos) {
 		this.nome_curso_pos = nome_curso_pos;
 	}
-	
-	
+
+	public String getConhece_infor() {
+		return conhece_infor;
+	}
+
+	public void setConhece_infor(String conhece_infor) {
+		this.conhece_infor = conhece_infor;
+	}
+
+	public String getConhece_idioma() {
+		return conhece_idioma;
+	}
+
+	public void setConhece_idioma(String conhece_idioma) {
+		this.conhece_idioma = conhece_idioma;
+	}
+
+	public String getQual_idioma() {
+		return qual_idioma;
+	}
+
+	public void setQual_idioma(String qual_idioma) {
+		this.qual_idioma = qual_idioma;
+	}
+
+	public String getOutros_cursos() {
+		return outros_cursos;
+	}
+
+	public void setOutros_cursos(String outros_cursos) {
+		this.outros_cursos = outros_cursos;
+	}
+
+	public String getEmpresa_atual_ultima() {
+		return empresa_atual_ultima;
+	}
+
+	public void setEmpresa_atual_ultima(String empresa_atual_ultima) {
+		this.empresa_atual_ultima = empresa_atual_ultima;
+	}
+
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public String getUltimo_cargo() {
+		return ultimo_cargo;
+	}
+
+	public void setUltimo_cargo(String ultimo_cargo) {
+		this.ultimo_cargo = ultimo_cargo;
+	}
+
+	public String getUltimo_periodo_trab() {
+		return ultimo_periodo_trab;
+	}
+
+	public void setUltimo_periodo_trab(String ultimo_periodo_trab) {
+		this.ultimo_periodo_trab = ultimo_periodo_trab;
+	}
+
+	public Double getUltimo_Salario() {
+		return ultimo_Salario;
+	}
+
+	public void setUltimo_Salario(Double ultimo_Salario) {
+		this.ultimo_Salario = ultimo_Salario;
+	}
+
+	public String getCargo_pretendido() {
+		return cargo_pretendido;
+	}
+
+	public void setCargo_pretendido(String cargo_pretendido) {
+		this.cargo_pretendido = cargo_pretendido;
+	}
+
+	public Double getPretensao_salarial() {
+		return pretensao_salarial;
+	}
+
+	public void setPretensao_salarial(Double pretensao_salarial) {
+		this.pretensao_salarial = pretensao_salarial;
+	}
+
+	public Integer getPeriodo_experiencia() {
+		return periodo_experiencia;
+	}
+
+	public void setPeriodo_experiencia(Integer periodo_experiencia) {
+		this.periodo_experiencia = periodo_experiencia;
+	}
+
+	public Integer getPagou_cont_sindical() {
+		return pagou_cont_sindical;
+	}
+
+	public void setPagou_cont_sindical(Integer pagou_cont_sindical) {
+		this.pagou_cont_sindical = pagou_cont_sindical;
+	}
 	
 	
 }

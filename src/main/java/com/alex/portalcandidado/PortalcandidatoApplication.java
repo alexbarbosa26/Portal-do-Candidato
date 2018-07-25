@@ -1,6 +1,5 @@
 package com.alex.portalcandidado;
 
-import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,28 +7,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.alex.portalcandidado.domain.Candidato;
 import com.alex.portalcandidado.domain.Cidade;
-import com.alex.portalcandidado.domain.CondicoesAdmissao;
-import com.alex.portalcandidado.domain.DadosPessoais;
-import com.alex.portalcandidado.domain.Documentos;
-import com.alex.portalcandidado.domain.Endereco;
 import com.alex.portalcandidado.domain.Estado;
-import com.alex.portalcandidado.domain.ExperienciaProfissional;
-import com.alex.portalcandidado.domain.FormacaoEducacional;
-import com.alex.portalcandidado.domain.OutrosCursos;
-import com.alex.portalcandidado.enums.EstadoCivil;
-import com.alex.portalcandidado.enums.TipoSimNao;
-import com.alex.portalcandidado.repositories.CandidatoRepository;
 import com.alex.portalcandidado.repositories.CidadeRepository;
-import com.alex.portalcandidado.repositories.CondicoesRepository;
-import com.alex.portalcandidado.repositories.DadosPessoaisRepository;
-import com.alex.portalcandidado.repositories.DocumentosRepository;
-import com.alex.portalcandidado.repositories.EnderecoRepository;
 import com.alex.portalcandidado.repositories.EstadoRepository;
-import com.alex.portalcandidado.repositories.ExperienciaRepository;
-import com.alex.portalcandidado.repositories.FormacaoEducacionalRepository;
-import com.alex.portalcandidado.repositories.OutrosCursosRepository;
 
 @SpringBootApplication
 public class PortalcandidatoApplication implements CommandLineRunner{
@@ -39,7 +20,7 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 	
 	@Autowired
 	private CidadeRepository repoCidade;
-	
+	/*
 	@Autowired
 	private CandidatoRepository repoCandidato;
 	
@@ -63,7 +44,7 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 	
 	@Autowired
 	private CondicoesRepository repoCond;
-	
+	*/
 	public static void main(String[] args) {
 		SpringApplication.run(PortalcandidatoApplication.class, args);
 	}
@@ -71,7 +52,7 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
+		//SimpleDateFormat date = new SimpleDateFormat("dd/MM/yyyy");
 		
 		Estado est1 = new Estado(null, "PE");
 		Estado est2 = new Estado(null, "SP");

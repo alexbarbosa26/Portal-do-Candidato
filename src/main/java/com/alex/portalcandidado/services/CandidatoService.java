@@ -7,21 +7,27 @@ import org.springframework.stereotype.Service;
 
 import com.alex.portalcandidado.domain.Candidato;
 import com.alex.portalcandidado.domain.Cidade;
+import com.alex.portalcandidado.domain.CondicoesAdmissao;
 import com.alex.portalcandidado.domain.DadosPessoais;
 import com.alex.portalcandidado.domain.Documentos;
 import com.alex.portalcandidado.domain.Endereco;
 import com.alex.portalcandidado.domain.Estado;
+import com.alex.portalcandidado.domain.ExperienciaProfissional;
 import com.alex.portalcandidado.domain.FormacaoEducacional;
+import com.alex.portalcandidado.domain.OutrosCursos;
 import com.alex.portalcandidado.dto.CandidatoDTO;
 import com.alex.portalcandidado.enums.EstadoCivil;
 import com.alex.portalcandidado.enums.TipoSimNao;
 import com.alex.portalcandidado.repositories.CandidatoRepository;
 import com.alex.portalcandidado.repositories.CidadeRepository;
+import com.alex.portalcandidado.repositories.CondicoesRepository;
 import com.alex.portalcandidado.repositories.DadosPessoaisRepository;
 import com.alex.portalcandidado.repositories.DocumentosRepository;
 import com.alex.portalcandidado.repositories.EnderecoRepository;
 import com.alex.portalcandidado.repositories.EstadoRepository;
+import com.alex.portalcandidado.repositories.ExperienciaRepository;
 import com.alex.portalcandidado.repositories.FormacaoEducacionalRepository;
+import com.alex.portalcandidado.repositories.OutrosCursosRepository;
 
 @Service
 public class CandidatoService {
@@ -47,6 +53,15 @@ public class CandidatoService {
 	@Autowired
 	private FormacaoEducacionalRepository repoEdu;
 	
+	@Autowired
+	private OutrosCursosRepository repoCursos;
+	
+	@Autowired
+	private ExperienciaRepository repoExp;
+	
+	@Autowired
+	private CondicoesRepository repoCond;
+	
 	//----------------------------------------------
 	public List<Candidato> findAll() {
 		return repo.findAll();
@@ -59,6 +74,10 @@ public class CandidatoService {
 		repoDoc.save(obj.getDocumentos());
 		repoDados.save(obj.getDadosPessoais());
 		repoEdu.save(obj.getEducacional());
+		repoCursos.save(obj.getCursos());
+		repoExp.save(obj.getExperiencia());
+		repoCond.save(obj.getCondicoes());
+		
 		return repo.save(obj);
 	}
 	
@@ -148,12 +167,38 @@ public class CandidatoService {
 				objDto.getConclusao_previsao_pos(),
 				objDto.getNome_curso_pos(), cand);
 		//------------------------------------------
+		OutrosCursos oc = new OutrosCursos(
+				null,
+				objDto.getConhece_infor(),
+				objDto.getConhece_idioma(),
+				objDto.getQual_idioma(),
+				objDto.getOutros_cursos(), cand);
+		//------------------------------------------
+		ExperienciaProfissional exp = new ExperienciaProfissional(
+				null,
+				objDto.getEmpresa_atual_ultima(),
+				objDto.getEndereco(),
+				objDto.getTelefone(),
+				objDto.getUltimo_cargo(),
+				objDto.getPeriodo_trab(),
+				objDto.getUltimo_Salario(), cand);
+		//------------------------------------------
+		CondicoesAdmissao cond= new CondicoesAdmissao(
+				null,
+				objDto.getCargo_pretendido(),
+				objDto.getPretensao_salarial(),
+				TipoSimNao.toEnum(objDto.getPeriodo_experiencia()),
+				TipoSimNao.toEnum(objDto.getPagou_cont_sindical()), cand);
+		//------------------------------------------
 		cand.getTelefones().add(objDto.getTelefone1());
 		
 		cand.getEndereco().add(end);
 		cand.setDocumentos(doc);
 		cand.setDadosPessoais(da);
 		cand.setEducacional(edu);
+		cand.setCursos(oc);
+		cand.setExperiencia(exp);
+		cand.setCondicoes(cond);
 		
 		if(objDto.getTelefone2()!=null) {
 			cand.getTelefones().add(objDto.getTelefone2());
