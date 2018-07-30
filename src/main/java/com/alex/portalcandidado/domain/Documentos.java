@@ -1,7 +1,9 @@
 package com.alex.portalcandidado.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 import com.alex.portalcandidado.enums.TipoSimNao;
@@ -47,9 +51,11 @@ public class Documentos implements Serializable {
 	private Date data_emissao_ct;
 	
 	
-	@OneToOne
-	@JoinColumn(name="estado_emissor_cod")
-	private Estado estado_emissor_ct;
+	@ManyToMany
+	@JoinTable(name="DOCUMENTO_ESTADO",
+			joinColumns=@JoinColumn(name="documento_cod"),
+			inverseJoinColumns=@JoinColumn(name="estado_cod"))
+	private List<Estado> estado_emissor_ct = new ArrayList<>();
 	
 	@JsonIgnore
 	@OneToOne
@@ -62,7 +68,7 @@ public class Documentos implements Serializable {
 
 	public Documentos(Integer codigo, String rg, Date data_emissao_rg, String orgao_emissor_rg, String titulo_eleitor,
 			String zona, String secao, TipoSimNao pis_pasep, String numero_pis, String cpf, String numero_reservista,
-			String categoria, String carteira_trab, String serie, Date data_emissao_ct, Estado estado_emissor_ct,Candidato candidato) {
+			String categoria, String carteira_trab, String serie, Date data_emissao_ct, Candidato candidato) {
 		super();
 		this.codigo = codigo;
 		this.rg = rg;
@@ -79,7 +85,6 @@ public class Documentos implements Serializable {
 		this.carteira_trab = carteira_trab;
 		this.serie = serie;
 		this.data_emissao_ct = data_emissao_ct;
-		this.estado_emissor_ct = estado_emissor_ct;
 		this.candidato=candidato;
 	}
 
@@ -202,15 +207,15 @@ public class Documentos implements Serializable {
 	public void setData_emissao_ct(Date data_emissao_ct) {
 		this.data_emissao_ct = data_emissao_ct;
 	}
-
-	public Estado getEstado_emissor_ct() {
+	
+	public List<Estado> getEstado_emissor_ct() {
 		return estado_emissor_ct;
 	}
 
-	public void setEstado_emissor_ct(Estado estado_emissor_ct) {
+	public void setEstado_emissor_ct(List<Estado> estado_emissor_ct) {
 		this.estado_emissor_ct = estado_emissor_ct;
 	}
-	
+
 	public Candidato getCandidato() {
 		return candidato;
 	}

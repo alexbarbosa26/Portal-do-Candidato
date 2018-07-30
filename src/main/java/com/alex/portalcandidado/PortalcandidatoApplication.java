@@ -14,7 +14,7 @@ import com.alex.portalcandidado.repositories.EstadoRepository;
 
 @SpringBootApplication
 public class PortalcandidatoApplication implements CommandLineRunner{
-
+	
 	@Autowired
 	private EstadoRepository repoEstado;
 	
@@ -66,9 +66,9 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 		
 		repoEstado.save(Arrays.asList(est1,est2));
 		repoCidade.save(Arrays.asList(cid1,cid2));
-		/*
-		//--------------------------------------------------------------
 		
+		//--------------------------------------------------------------
+		/*
 		Candidato cand1 = new Candidato(null, "Alex Barbosa da Silva", "abarbosasilva7@gmail.com", "Branco", date.parse("26/11/1990"), "27", "Brasileiro", EstadoCivil.SOLTEIRO);
 		Candidato cand2 = new Candidato(null, "Ana Jessica dos Santos", "anajessica17@hotmail.com", "Branco", date.parse("13/04/1993"), "25", "Brasileira", EstadoCivil.SOLTEIRO);
 		

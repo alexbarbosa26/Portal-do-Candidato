@@ -1,5 +1,6 @@
 package com.alex.portalcandidado.services;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -125,8 +126,7 @@ public class CandidatoService {
 				objDto.getCategoria(),
 				objDto.getCarteira_trab(),
 				objDto.getSerie(),
-				objDto.getData_emissao_ct(),
-				est,cand);
+				objDto.getData_emissao_ct(),cand);
 		//------------------------------------------
 		
 		DadosPessoais da = new DadosPessoais(
@@ -191,8 +191,10 @@ public class CandidatoService {
 				TipoSimNao.toEnum(objDto.getPagou_cont_sindical()), cand);
 		//------------------------------------------
 		cand.getTelefones().add(objDto.getTelefone1());
-		
+		est.getDocumentos().addAll(Arrays.asList(doc));
+		doc.getEstado_emissor_ct().addAll(Arrays.asList(est));
 		cand.getEndereco().add(end);
+		
 		cand.setDocumentos(doc);
 		cand.setDadosPessoais(da);
 		cand.setEducacional(edu);
@@ -222,6 +224,12 @@ public class CandidatoService {
 		
 		return repo.findCriterios(cpf, rg, nome);
 	}
+	
+	/*
+	public List<Candidato> finCriteriosEndereco(String cidade, String bairro){
+		
+		return repo.findCriteriosEndreco(cidade, bairro);
+	}*/
 	
 
 }

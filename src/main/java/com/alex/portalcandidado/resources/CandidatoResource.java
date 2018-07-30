@@ -61,5 +61,16 @@ public class CandidatoResource {
 
 		return ResponseEntity.ok().body(obj);
 	}
+	/*
+	@RequestMapping(value = "/{cidade}/{bairro}/endereco", method = RequestMethod.GET)
+	public ResponseEntity<List<Candidato>> findCriteriosEndereco(@PathVariable String cidade, @PathVariable String bairro) {
+
+		cidade = cidade.equals("uniformed") ? "" : cidade;
+		bairro = bairro.equals("uniformed") ? "" : bairro;
+		
+		List<Candidato> obj = service.finCriteriosEndereco(cidade, bairro);
+
+		return ResponseEntity.ok().body(obj);
+	}*/
 
 }
