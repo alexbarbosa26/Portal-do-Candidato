@@ -59,13 +59,14 @@ public class PortalcandidatoApplication implements CommandLineRunner{
 		
 		Cidade cid1 = new Cidade(null, "Jaboatão dos Guararapes", est1);
 		Cidade cid2 = new Cidade(null, "São Paulo", est2);
+		Cidade cid3 = new Cidade(null, "Recife", est1);
 		
-		est1.getCidades().addAll(Arrays.asList(cid1));		
+		est1.getCidades().addAll(Arrays.asList(cid1,cid3));		
 		
 		est2.getCidades().addAll(Arrays.asList(cid2));
 		
 		repoEstado.save(Arrays.asList(est1,est2));
-		repoCidade.save(Arrays.asList(cid1,cid2));
+		repoCidade.save(Arrays.asList(cid1,cid2,cid3));
 		
 		//--------------------------------------------------------------
 		/*

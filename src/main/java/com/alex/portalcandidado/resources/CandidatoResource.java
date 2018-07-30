@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -25,12 +26,13 @@ public class CandidatoResource {
 	@Autowired
 	private CandidatoService service;
 
+	/*
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Candidato>> findAll() {
 		List<Candidato> list = service.findAll();
 
 		return ResponseEntity.ok().body(list);
-	}
+	}*/
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody CandidatoDTO objDto) {
@@ -61,16 +63,16 @@ public class CandidatoResource {
 
 		return ResponseEntity.ok().body(obj);
 	}
-	/*
-	@RequestMapping(value = "/{cidade}/{bairro}/endereco", method = RequestMethod.GET)
-	public ResponseEntity<List<Candidato>> findCriteriosEndereco(@PathVariable String cidade, @PathVariable String bairro) {
-
-		cidade = cidade.equals("uniformed") ? "" : cidade;
-		bairro = bairro.equals("uniformed") ? "" : bairro;
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<Candidato>> findCriteriosEndereco( 
+			@RequestParam(value="cidade", defaultValue="") String cidade,
+			@RequestParam(value="bairro", defaultValue="") String bairro,
+			@RequestParam(value="disp", defaultValue="") String disp) {
 		
-		List<Candidato> obj = service.finCriteriosEndereco(cidade, bairro);
+		List<Candidato> obj = service.finCriteriosEndereco(cidade, bairro, disp);
 
 		return ResponseEntity.ok().body(obj);
-	}*/
+	}
 
 }

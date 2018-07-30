@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.alex.portalcandidado.domain.Candidato;
 
 @Repository
-public interface CandidatoRepository extends JpaRepository<Candidato, Integer>{
+public interface CandidatoRepository extends JpaRepository<Candidato, Integer> {
 	
 	@Transactional(readOnly=true)
 	@Query("SELECT DISTINCT obj FROM Candidato obj INNER JOIN obj.documentos acc WHERE acc.cpf LIKE %:cpf%")
@@ -21,9 +21,10 @@ public interface CandidatoRepository extends JpaRepository<Candidato, Integer>{
 	@Query("SELECT DISTINCT obj FROM Candidato obj INNER JOIN obj.documentos acc WHERE obj.nome LIKE %:nome% AND acc.cpf LIKE %:cpf% AND acc.rg LIKE %:rg%")
 	public List<Candidato> findCriterios(@Param("cpf") String cpf, @Param("rg") String rg, @Param("nome") String nome);
 
-	/*
+	
 	@Transactional(readOnly=true)
-	@Query("SELECT DISTINCT obj FROM Candidato obj INNER JOIN obj.endereco e INNER JOIN Cidade c WHERE e.bairro LIKE %:bairro% AND c.nome LIKE %:cidade%")
-	public List<Candidato> findCriteriosEndreco(@Param("cidade") String cidade, @Param("bairro") String bairro);
-	*/
+	@Query("SELECT DISTINCT obj FROM Candidato obj INNER JOIN obj.endereco e INNER JOIN obj.dadosPessoais dp"
+	+ " WHERE e.bairro LIKE %:bairro% AND e.cidade.nome LIKE %:cidade% AND dp.disp_horario LIKE %:disp%")
+	public List<Candidato> findCriteriosEndreco(@Param("cidade") String cidade, @Param("bairro") String bairro, @Param("disp") String disp);
+	
 }

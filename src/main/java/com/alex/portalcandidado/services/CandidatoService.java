@@ -225,11 +225,11 @@ public class CandidatoService {
 		return repo.findCriterios(cpf, rg, nome);
 	}
 	
-	/*
-	public List<Candidato> finCriteriosEndereco(String cidade, String bairro){
+	
+	public List<Candidato> finCriteriosEndereco(String cidade, String bairro, String disp){
 		
-		return repo.findCriteriosEndreco(cidade, bairro);
-	}*/
+		return repo.findCriteriosEndreco(cidade, bairro, disp);
+	}
 	
 
 }
