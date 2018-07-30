@@ -1,5 +1,6 @@
 package com.alex.portalcandidado.services;
 
+import java.sql.Date;
 import java.util.Arrays;
 import java.util.List;
 
@@ -226,9 +227,9 @@ public class CandidatoService {
 	}
 	
 	
-	public List<Candidato> finCriteriosEndereco(String cidade, String bairro, String disp){
+	public List<Candidato> finCriteriosEndereco(String cidade, String bairro, String disp, Date dataInicio, Date dataFim){
 		
-		return repo.findCriteriosEndreco(cidade, bairro, disp);
+		return repo.findCriteriosEndrecoDadosPessoais(cidade, bairro, disp, dataInicio, dataFim);
 	}
 	
 

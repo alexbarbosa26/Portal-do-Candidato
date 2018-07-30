@@ -1,6 +1,7 @@
 package com.alex.portalcandidado.resources;
 
 import java.net.URI;
+import java.sql.Date;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -68,11 +69,13 @@ public class CandidatoResource {
 	public ResponseEntity<List<Candidato>> findCriteriosEndereco( 
 			@RequestParam(value="cidade", defaultValue="") String cidade,
 			@RequestParam(value="bairro", defaultValue="") String bairro,
-			@RequestParam(value="disp", defaultValue="") String disp) {
+			@RequestParam(value="disp", defaultValue="") String disp,
+			@RequestParam Date dataInicio, @RequestParam Date dataFim) {
 		
-		List<Candidato> obj = service.finCriteriosEndereco(cidade, bairro, disp);
+		List<Candidato> obj = service.finCriteriosEndereco(cidade, bairro, disp, dataInicio, dataFim);
 
 		return ResponseEntity.ok().body(obj);
 	}
+	
 
 }

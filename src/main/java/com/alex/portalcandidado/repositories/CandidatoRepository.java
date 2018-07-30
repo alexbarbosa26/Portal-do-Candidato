@@ -1,5 +1,6 @@
 package com.alex.portalcandidado.repositories;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,7 +25,13 @@ public interface CandidatoRepository extends JpaRepository<Candidato, Integer> {
 	
 	@Transactional(readOnly=true)
 	@Query("SELECT DISTINCT obj FROM Candidato obj INNER JOIN obj.endereco e INNER JOIN obj.dadosPessoais dp"
-	+ " WHERE e.bairro LIKE %:bairro% AND e.cidade.nome LIKE %:cidade% AND dp.disp_horario LIKE %:disp%")
-	public List<Candidato> findCriteriosEndreco(@Param("cidade") String cidade, @Param("bairro") String bairro, @Param("disp") String disp);
+	+ " WHERE e.bairro LIKE %:bairro% AND e.cidade.nome LIKE %:cidade% AND dp.disp_horario LIKE %:disp% "
+	+ "AND dp.data_cadastro BETWEEN :dataInicio AND :dataFim")
+	public List<Candidato> findCriteriosEndrecoDadosPessoais(
+			@Param("cidade") String cidade,
+			@Param("bairro") String bairro,
+			@Param("disp") String disp,
+			@Param("dataInicio") Date dataInicio,
+			@Param("dataFim") Date dataFim);
 	
 }
