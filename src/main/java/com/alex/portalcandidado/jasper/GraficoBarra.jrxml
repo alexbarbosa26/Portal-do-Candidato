@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Grafico" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6928532c-3bad-427d-9bfe-a99e6d5cf4f2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="Ultimos 7 dias" uuid="a367d22a-fd97-4ddd-9dad-4b5a6d3c65ed">
+		<queryString>
+			<![CDATA[SELECT DATE_FORMAT(data_cadastro_cand,'%d de %M') AS Data, count(id_candidados) AS QNT  FROM tb_candidatos WHERE data_cadastro_cand
+BETWEEN TIMESTAMP(DATE_SUB(NOW(), INTERVAL 7 day)) AND NOW() GROUP BY Data;]]>
+		</queryString>
+		<field name="Data" class="java.lang.String"/>
+		<field name="QNT" class="java.lang.Long"/>
+		<group name="Data">
+			<groupExpression><![CDATA[$F{Data}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="Ultimos 15 dias" uuid="6e3137a9-fe3e-4f2a-935b-80bfe8013b87">
+		<queryString>
+			<![CDATA[SELECT DATE_FORMAT(data_cadastro_cand,'%d de %M') AS Data, count(id_candidados) AS QNT  FROM tb_candidatos WHERE data_cadastro_cand
+BETWEEN TIMESTAMP(DATE_SUB(NOW(), INTERVAL 15 day)) AND NOW() GROUP BY Data;]]>
+		</queryString>
+		<field name="Data" class="java.lang.String"/>
+		<field name="QNT" class="java.lang.Long"/>
+		<group name="Data">
+			<groupExpression><![CDATA[$F{Data}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="Ultimos 30 dias" uuid="34ad599d-b66e-4485-ad6b-4ce74314255d">
+		<queryString language="SQL">
+			<![CDATA[SELECT DATE_FORMAT(data_cadastro_cand,'%d de %M') AS Data, count(id_candidados) AS QNT  FROM tb_candidatos WHERE data_cadastro_cand
+BETWEEN TIMESTAMP(DATE_SUB(NOW(), INTERVAL 30 day)) AND NOW() GROUP BY Data;]]>
+		</queryString>
+		<field name="Data" class="java.lang.String"/>
+		<field name="QNT" class="java.lang.Long"/>
+		<group name="Data">
+			<groupExpression><![CDATA[$F{Data}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT
+     DATE_FORMAT(tb_candidatos.`data_nasci`,'%d/%m/%Y') AS tb_candidatos_data_nasci,
+     DATE_FORMAT(tb_candidatos.`data_emissao_rg`,'%d/%m/%Y') AS tb_candidatos_data_emissao_rg,
+     DATE_FORMAT(tb_candidatos.`data_emissao_clt`,'%d/%m/%Y') AS tb_candidatos_data_emissao_clt,
+     DATE_FORMAT(tb_candidatos.`data_conclusao_ensino`,'%d/%m/%Y') AS tb_candidatos_data_conclusao_ensino,
+     DATE_FORMAT(tb_candidatos.`data_graduacao`,'%d/%m/%Y') AS tb_candidatos_data_graduacao,
+     DATE_FORMAT(tb_candidatos.`data_cadastro_cand`,'%d/%m/%Y') AS tb_candidatos_data_cadastro_cand,
+     tb_candidatos.`consult_indiqueAmigo_outros` AS tb_candidatos_consult_indiqueAmigo_outros,
+     tb_candidatos.`fonte_recrutamento` AS tb_candidatos_fonte_recrutamento,
+     tb_candidatos.`nomecompleto` AS tb_candidatos_nomecompleto,
+     tb_candidatos.`email` AS tb_candidatos_email,
+     tb_candidatos.`cep` AS tb_candidatos_cep,
+     tb_candidatos.`rua` AS tb_candidatos_rua,
+     tb_candidatos.`bairro` AS tb_candidatos_bairro,
+     tb_candidatos.`numero` AS tb_candidatos_numero,
+     tb_candidatos.`complemento` AS tb_candidatos_complemento,
+     tb_candidatos.`cidade` AS tb_candidatos_cidade,
+     tb_candidatos.`uf` AS tb_candidatos_uf,
+     tb_candidatos.`pais` AS tb_candidatos_pais,
+     tb_candidatos.`sexo` AS tb_candidatos_sexo,
+     tb_candidatos.`idade` AS tb_candidatos_idade,
+     tb_candidatos.`estado_civil` AS tb_candidatos_estado_civil,
+     tb_candidatos.`nome_mae` AS tb_candidatos_nome_mae,
+     tb_candidatos.`nome_pai` AS tb_candidatos_nome_pai,
+     tb_candidatos.`raca` AS tb_candidatos_raca,
+     tb_candidatos.`celular` AS tb_candidatos_celular,
+     tb_candidatos.`telefone` AS tb_candidatos_telefone,
+     tb_candidatos.`filhos` AS tb_candidatos_filhos,
+     tb_candidatos.`nome_filhos` AS tb_candidatos_nome_filhos,
+     tb_candidatos.`qnt_conducoes` AS tb_candidatos_qnt_conducoes,
+     tb_candidatos.`valor_conducao` AS tb_candidatos_valor_conducao,
+     tb_candidatos.`transportes` AS tb_candidatos_transportes,
+     tb_candidatos.`outros_transportes` AS tb_candidatos_outros_transportes,
+     tb_candidatos.`horario_disposnivel` AS tb_candidatos_horario_disposnivel,
+     tb_candidatos.`especificar_horario` AS tb_candidatos_especificar_horario,
+     tb_candidatos.`disp_sab_dom` AS tb_candidatos_disp_sab_dom,
+     tb_candidatos.`trabalhou_tivit` AS tb_candidatos_trabalhou_tivit,
+     tb_candidatos.`periodo_trab_tivit` AS tb_candidatos_periodo_trab_tivit,
+     tb_candidatos.`tempo_trab_telemrk` AS tb_candidatos_tempo_trab_telemrk,
+     tb_candidatos.`part_proc_tivit_neobpo` AS tb_candidatos_part_proc_tivit_neobpo,
+     tb_candidatos.`produto_proc_seletivo` AS tb_candidatos_produto_proc_seletivo,
+     tb_candidatos.`trabalhou_telemrk` AS tb_candidatos_trabalhou_telemrk,
+     tb_candidatos.`tipo_telemrk` AS tb_candidatos_tipo_telemrk,
+     tb_candidatos.`parentes_neobpo` AS tb_candidatos_parentes_neobpo,
+     tb_candidatos.`nome_parente` AS tb_candidatos_nome_parente,
+     tb_candidatos.`portador_deficiencia` AS tb_candidatos_portador_deficiencia,
+     tb_candidatos.`tipo_deficiencia` AS tb_candidatos_tipo_deficiencia,
+     tb_candidatos.`cpf` AS tb_candidatos_cpf,
+     tb_candidatos.`rg` AS tb_candidatos_rg,
+     tb_candidatos.`orgao_emissor_rg` AS tb_candidatos_orgao_emissor_rg,
+     tb_candidatos.`titluto_eleitor` AS tb_candidatos_titluto_eleitor,
+     tb_candidatos.`zona_titulo` AS tb_candidatos_zona_titulo,
+     tb_candidatos.`secao_titulo` AS tb_candidatos_secao_titulo,
+     tb_candidatos.`carteira_clt` AS tb_candidatos_carteira_clt,
+     tb_candidatos.`serie_clt` AS tb_candidatos_serie_clt,
+     tb_candidatos.`estado_emissor_clt` AS tb_candidatos_estado_emissor_clt,
+     tb_candidatos.`reservista` AS tb_candidatos_reservista,
+     tb_candidatos.`categoria_reservista` AS tb_candidatos_categoria_reservista,
+     tb_candidatos.`pis_pasep` AS tb_candidatos_pis_pasep,
+     tb_candidatos.`pis_pasep_num` AS tb_candidatos_pis_pasep_num,
+     tb_candidatos.`ensino_medio` AS tb_candidatos_ensino_medio,
+     tb_candidatos.`nome_curso_tec` AS tb_candidatos_nome_curso_tec,
+     tb_candidatos.`graduacao_inst` AS tb_candidatos_graduacao_inst,
+     tb_candidatos.`nome_curso_graduacao` AS tb_candidatos_nome_curso_graduacao,
+     tb_candidatos.`pos_graduacao_inst` AS tb_candidatos_pos_graduacao_inst,
+     tb_candidatos.`data_pos_graduacao` AS tb_candidatos_data_pos_graduacao,
+     tb_candidatos.`nome_curso_pos_graduacao` AS tb_candidatos_nome_curso_pos_graduacao,
+     tb_candidatos.`data_cadastro_cand` AS tb_candidatos_data_cadastro_cand,
+     tb_candidatos.`conhecimento_info` AS tb_candidatos_conhecimento_info,
+     tb_candidatos.`conhecimento_idioma` AS tb_candidatos_conhecimento_idioma,
+     tb_candidatos.`qual_idioma` AS tb_candidatos_qual_idioma,
+     tb_candidatos.`outros_cursos` AS tb_candidatos_outros_cursos,
+     tb_candidatos.`atual_empresa` AS tb_candidatos_atual_empresa,
+     tb_candidatos.`ultimo_cargo` AS tb_candidatos_ultimo_cargo,
+     tb_candidatos.`endereco_empresa` AS tb_candidatos_endereco_empresa,
+     tb_candidatos.`telefone_empresa` AS tb_candidatos_telefone_empresa,
+     tb_candidatos.`periodo_empresa` AS tb_candidatos_periodo_empresa,
+     tb_candidatos.`ultimo_salario` AS tb_candidatos_ultimo_salario,
+     tb_candidatos.`motivo_saida` AS tb_candidatos_motivo_saida,
+     tb_candidatos.`penultima_empresa` AS tb_candidatos_penultima_empresa,
+     tb_candidatos.`penultimo_cargo` AS tb_candidatos_penultimo_cargo,
+     tb_candidatos.`penultimo_endereco_empresa` AS tb_candidatos_penultimo_endereco_empresa,
+     tb_candidatos.`penultimo_tel_empresa` AS tb_candidatos_penultimo_tel_empresa,
+     tb_candidatos.`penultimo_periodo_empresa` AS tb_candidatos_penultimo_periodo_empresa,
+     tb_candidatos.`penultimo_salario` AS tb_candidatos_penultimo_salario,
+     tb_candidatos.`penultimo_motivo_saida` AS tb_candidatos_penultimo_motivo_saida,
+     tb_candidatos.`cargo_pretendido` AS tb_candidatos_cargo_pretendido,
+     tb_candidatos.`pretensao_salarial` AS tb_candidatos_pretensao_salarial,
+     tb_candidatos.`submete_experiencia` AS tb_candidatos_submete_experiencia,
+     tb_candidatos.`pagou_contribuicao` AS tb_candidatos_pagou_contribuicao
+FROM
+     `tb_candidatos` tb_candidatos
+ORDER BY
+     tb_candidatos.`data_cadastro_cand` ASC LIMIT 1]]>
+	</queryString>
+	<field name="tb_candidatos_data_nasci" class="java.lang.String"/>
+	<field name="tb_candidatos_data_emissao_rg" class="java.lang.String"/>
+	<field name="tb_candidatos_data_emissao_clt" class="java.lang.String"/>
+	<field name="tb_candidatos_data_conclusao_ensino" class="java.lang.String"/>
+	<field name="tb_candidatos_data_graduacao" class="java.lang.String"/>
+	<field name="tb_candidatos_data_cadastro_cand" class="java.lang.String"/>
+	<field name="tb_candidatos_consult_indiqueAmigo_outros" class="java.lang.String"/>
+	<field name="tb_candidatos_fonte_recrutamento" class="java.lang.String"/>
+	<field name="tb_candidatos_nomecompleto" class="java.lang.String"/>
+	<field name="tb_candidatos_email" class="java.lang.String"/>
+	<field name="tb_candidatos_cep" class="java.lang.String"/>
+	<field name="tb_candidatos_rua" class="java.lang.String"/>
+	<field name="tb_candidatos_bairro" class="java.lang.String"/>
+	<field name="tb_candidatos_numero" class="java.lang.Integer"/>
+	<field name="tb_candidatos_complemento" class="java.lang.String"/>
+	<field name="tb_candidatos_cidade" class="java.lang.String"/>
+	<field name="tb_candidatos_uf" class="java.lang.String"/>
+	<field name="tb_candidatos_pais" class="java.lang.String"/>
+	<field name="tb_candidatos_sexo" class="java.lang.String"/>
+	<field name="tb_candidatos_idade" class="java.lang.String"/>
+	<field name="tb_candidatos_estado_civil" class="java.lang.String"/>
+	<field name="tb_candidatos_nome_mae" class="java.lang.String"/>
+	<field name="tb_candidatos_nome_pai" class="java.lang.String"/>
+	<field name="tb_candidatos_raca" class="java.lang.String"/>
+	<field name="tb_candidatos_celular" class="java.lang.String"/>
+	<field name="tb_candidatos_telefone" class="java.lang.String"/>
+	<field name="tb_candidatos_filhos" class="java.lang.String"/>
+	<field name="tb_candidatos_nome_filhos" class="java.lang.String"/>
+	<field name="tb_candidatos_qnt_conducoes" class="java.lang.String"/>
+	<field name="tb_candidatos_valor_conducao" class="java.lang.Float"/>
+	<field name="tb_candidatos_transportes" class="java.lang.String"/>
+	<field name="tb_candidatos_outros_transportes" class="java.lang.String"/>
+	<field name="tb_candidatos_horario_disposnivel" class="java.lang.String"/>
+	<field name="tb_candidatos_especificar_horario" class="java.lang.String"/>
+	<field name="tb_candidatos_disp_sab_dom" class="java.lang.String"/>
+	<field name="tb_candidatos_trabalhou_tivit" class="java.lang.String"/>
+	<field name="tb_candidatos_periodo_trab_tivit" class="java.lang.String"/>
+	<field name="tb_candidatos_tempo_trab_telemrk" class="java.lang.String"/>
+	<field name="tb_candidatos_part_proc_tivit_neobpo" class="java.lang.String"/>
+	<field name="tb_candidatos_produto_proc_seletivo" class="java.lang.String"/>
+	<field name="tb_candidatos_trabalhou_telemrk" class="java.lang.String"/>
+	<field name="tb_candidatos_tipo_telemrk" class="java.lang.String"/>
+	<field name="tb_candidatos_parentes_neobpo" class="java.lang.String"/>
+	<field name="tb_candidatos_nome_parente" class="java.lang.String"/>
+	<field name="tb_candidatos_portador_deficiencia" class="java.lang.String"/>
+	<field name="tb_candidatos_tipo_deficiencia" class="java.lang.String"/>
+	<field name="tb_candidatos_cpf" class="java.lang.String"/>
+	<field name="tb_candidatos_rg" class="java.lang.String"/>
+	<field name="tb_candidatos_orgao_emissor_rg" class="java.lang.String"/>
+	<field name="tb_candidatos_titluto_eleitor" class="java.lang.String"/>
+	<field name="tb_candidatos_zona_titulo" class="java.lang.String"/>
+	<field name="tb_candidatos_secao_titulo" class="java.lang.String"/>
+	<field name="tb_candidatos_carteira_clt" class="java.lang.String"/>
+	<field name="tb_candidatos_serie_clt" class="java.lang.String"/>
+	<field name="tb_candidatos_estado_emissor_clt" class="java.lang.String"/>
+	<field name="tb_candidatos_reservista" class="java.lang.String"/>
+	<field name="tb_candidatos_categoria_reservista" class="java.lang.String"/>
+	<field name="tb_candidatos_pis_pasep" class="java.lang.String"/>
+	<field name="tb_candidatos_pis_pasep_num" class="java.lang.String"/>
+	<field name="tb_candidatos_ensino_medio" class="java.lang.String"/>
+	<field name="tb_candidatos_nome_curso_tec" class="java.lang.String"/>
+	<field name="tb_candidatos_graduacao_inst" class="java.lang.String"/>
+	<field name="tb_candidatos_nome_curso_graduacao" class="java.lang.String"/>
+	<field name="tb_candidatos_pos_graduacao_inst" class="java.lang.String"/>
+	<field name="tb_candidatos_data_pos_graduacao" class="java.lang.String"/>
+	<field name="tb_candidatos_nome_curso_pos_graduacao" class="java.lang.String"/>
+	<field name="tb_candidatos_conhecimento_info" class="java.lang.String"/>
+	<field name="tb_candidatos_conhecimento_idioma" class="java.lang.String"/>
+	<field name="tb_candidatos_qual_idioma" class="java.lang.String"/>
+	<field name="tb_candidatos_outros_cursos" class="java.lang.String"/>
+	<field name="tb_candidatos_atual_empresa" class="java.lang.String"/>
+	<field name="tb_candidatos_ultimo_cargo" class="java.lang.String"/>
+	<field name="tb_candidatos_endereco_empresa" class="java.lang.String"/>
+	<field name="tb_candidatos_telefone_empresa" class="java.lang.String"/>
+	<field name="tb_candidatos_periodo_empresa" class="java.lang.String"/>
+	<field name="tb_candidatos_ultimo_salario" class="java.lang.String"/>
+	<field name="tb_candidatos_motivo_saida" class="java.lang.String"/>
+	<field name="tb_candidatos_penultima_empresa" class="java.lang.String"/>
+	<field name="tb_candidatos_penultimo_cargo" class="java.lang.String"/>
+	<field name="tb_candidatos_penultimo_endereco_empresa" class="java.lang.String"/>
+	<field name="tb_candidatos_penultimo_tel_empresa" class="java.lang.String"/>
+	<field name="tb_candidatos_penultimo_periodo_empresa" class="java.lang.String"/>
+	<field name="tb_candidatos_penultimo_salario" class="java.lang.String"/>
+	<field name="tb_candidatos_penultimo_motivo_saida" class="java.lang.String"/>
+	<field name="tb_candidatos_cargo_pretendido" class="java.lang.String"/>
+	<field name="tb_candidatos_pretensao_salarial" class="java.lang.String"/>
+	<field name="tb_candidatos_submete_experiencia" class="java.lang.String"/>
+	<field name="tb_candidatos_pagou_contribuicao" class="java.lang.String"/>
+	<group name="tb_candidatos_cidade">
+		<groupExpression><![CDATA[$F{tb_candidatos_cidade}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="74" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="74" uuid="a0fd42a3-dec1-4eaa-a96f-fe1ea8a75863"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Calibri" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Relatório dos candidatos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="511" splitType="Stretch">
+			<barChart>
+				<chart evaluationTime="Report" renderType="svg" theme="default">
+					<reportElement x="0" y="0" width="555" height="144" uuid="bc2a2bce-1e0b-47c3-a076-2e672970649d"/>
+					<chartTitle position="Top"/>
+					<chartSubtitle/>
+					<chartLegend position="Bottom"/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="Ultimos 7 dias" uuid="1c0c3703-10cb-4c46-a49d-de95df5d7c0f"/>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Últimos 7 Dias"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{Data}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{QNT}]]></valueExpression>
+						<labelExpression><![CDATA[$F{QNT}.toString()]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot isShowLabels="true">
+					<plot orientation="Horizontal">
+						<seriesColor seriesOrder="0" color="#0066CC"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat tickLabelMask="teste"/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</barPlot>
+			</barChart>
+			<bar3DChart>
+				<chart evaluationTime="Report" renderType="svg" theme="default">
+					<reportElement x="0" y="154" width="555" height="161" uuid="951ae19a-967e-4164-be64-15a0d9c631f8"/>
+					<chartTitle position="Bottom"/>
+					<chartSubtitle/>
+					<chartLegend position="Bottom"/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="Ultimos 15 dias" uuid="5c36dbbd-1366-4d19-83c1-6fc439064257"/>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Ultimos 15 Dias"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{Data}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{QNT}]]></valueExpression>
+						<labelExpression><![CDATA[$F{QNT}.toString()]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot isShowLabels="true">
+					<plot orientation="Horizontal">
+						<seriesColor seriesOrder="0" color="#0099FF"/>
+					</plot>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+			<lineChart>
+				<chart evaluationTime="Report" renderType="svg" theme="default">
+					<reportElement x="0" y="315" width="555" height="196" uuid="eb71fb72-00e5-4413-b78e-b1bac6f7d852"/>
+					<chartTitle position="Bottom"/>
+					<chartSubtitle/>
+					<chartLegend position="Bottom"/>
+				</chart>
+				<categoryDataset>
+					<dataset>
+						<datasetRun subDataset="Ultimos 30 dias" uuid="618b8dfc-1f3a-4109-952d-810091b937c5"/>
+					</dataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Ultimos 30 dias"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{Data}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{QNT}]]></valueExpression>
+						<labelExpression><![CDATA[$F{QNT}.toString()]]></labelExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot>
+					<plot>
+						<seriesColor seriesOrder="0" color="#0066CC"/>
+					</plot>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
+		</band>
+	</detail>
+</jasperReport>
