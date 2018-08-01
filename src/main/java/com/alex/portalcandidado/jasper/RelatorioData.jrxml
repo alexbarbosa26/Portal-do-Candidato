@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relatorio" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f6668819-53aa-448a-b84a-d5282e830de8">
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relatorio" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f6668819-53aa-448a-b84a-d5282e830de8">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="240"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DHO"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="479"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="514"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w1" value="659"/>
+	<property name="com.jaspersoft.studio.property.dataset.dialog.DatasetDialog.sash.w2" value="330"/>
 	<parameter name="data_inicio" class="java.util.Date">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -10,193 +17,413 @@
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
 	<queryString>
-		<![CDATA[SELECT
-      DATE_FORMAT(tb_candidatos.`data_nasci`,'%d/%m/%Y') AS tb_candidatos_data_nasci,
-     DATE_FORMAT(tb_candidatos.`data_emissao_rg`,'%d/%m/%Y') AS tb_candidatos_data_emissao_rg,
-     DATE_FORMAT(tb_candidatos.`data_emissao_clt`,'%d/%m/%Y') AS tb_candidatos_data_emissao_clt,
-     DATE_FORMAT(tb_candidatos.`data_conclusao_ensino`,'%d/%m/%Y') AS tb_candidatos_data_conclusao_ensino,
-     DATE_FORMAT(tb_candidatos.`data_graduacao`,'%d/%m/%Y') AS tb_candidatos_data_graduacao,
-     DATE_FORMAT(tb_candidatos.`data_cadastro_cand`,'%d/%m/%Y') AS tb_candidatos_data_cadastro_cand,
-     tb_candidatos.`consult_indiqueAmigo_outros` AS tb_candidatos_consult_indiqueAmigo_outros,
-     tb_candidatos.`fonte_recrutamento` AS tb_candidatos_fonte_recrutamento,
-     tb_candidatos.`nomecompleto` AS tb_candidatos_nomecompleto,
-     tb_candidatos.`email` AS tb_candidatos_email,
-     tb_candidatos.`cep` AS tb_candidatos_cep,
-     tb_candidatos.`rua` AS tb_candidatos_rua,
-     tb_candidatos.`bairro` AS tb_candidatos_bairro,
-     tb_candidatos.`numero` AS tb_candidatos_numero,
-     tb_candidatos.`complemento` AS tb_candidatos_complemento,
-     tb_candidatos.`cidade` AS tb_candidatos_cidade,
-     tb_candidatos.`uf` AS tb_candidatos_uf,
-     tb_candidatos.`pais` AS tb_candidatos_pais,
-     tb_candidatos.`sexo` AS tb_candidatos_sexo,
-     tb_candidatos.`idade` AS tb_candidatos_idade,
-     tb_candidatos.`estado_civil` AS tb_candidatos_estado_civil,
-     tb_candidatos.`nome_mae` AS tb_candidatos_nome_mae,
-     tb_candidatos.`nome_pai` AS tb_candidatos_nome_pai,
-     tb_candidatos.`raca` AS tb_candidatos_raca,
-     tb_candidatos.`celular` AS tb_candidatos_celular,
-     tb_candidatos.`telefone` AS tb_candidatos_telefone,
-     tb_candidatos.`filhos` AS tb_candidatos_filhos,
-     tb_candidatos.`nome_filhos` AS tb_candidatos_nome_filhos,
-     tb_candidatos.`qnt_conducoes` AS tb_candidatos_qnt_conducoes,
-     tb_candidatos.`valor_conducao` AS tb_candidatos_valor_conducao,
-     tb_candidatos.`transportes` AS tb_candidatos_transportes,
-     tb_candidatos.`outros_transportes` AS tb_candidatos_outros_transportes,
-     tb_candidatos.`horario_disposnivel` AS tb_candidatos_horario_disposnivel,
-     tb_candidatos.`especificar_horario` AS tb_candidatos_especificar_horario,
-     tb_candidatos.`disp_sab_dom` AS tb_candidatos_disp_sab_dom,
-     tb_candidatos.`trabalhou_tivit` AS tb_candidatos_trabalhou_tivit,
-     tb_candidatos.`periodo_trab_tivit` AS tb_candidatos_periodo_trab_tivit,
-     tb_candidatos.`tempo_trab_telemrk` AS tb_candidatos_tempo_trab_telemrk,
-     tb_candidatos.`part_proc_tivit_neobpo` AS tb_candidatos_part_proc_tivit_neobpo,
-     tb_candidatos.`produto_proc_seletivo` AS tb_candidatos_produto_proc_seletivo,
-     tb_candidatos.`trabalhou_telemrk` AS tb_candidatos_trabalhou_telemrk,
-     tb_candidatos.`tipo_telemrk` AS tb_candidatos_tipo_telemrk,
-     tb_candidatos.`parentes_neobpo` AS tb_candidatos_parentes_neobpo,
-     tb_candidatos.`nome_parente` AS tb_candidatos_nome_parente,
-     tb_candidatos.`portador_deficiencia` AS tb_candidatos_portador_deficiencia,
-     tb_candidatos.`tipo_deficiencia` AS tb_candidatos_tipo_deficiencia,
-     tb_candidatos.`cpf` AS tb_candidatos_cpf,
-     tb_candidatos.`rg` AS tb_candidatos_rg,
-     tb_candidatos.`orgao_emissor_rg` AS tb_candidatos_orgao_emissor_rg,
-     tb_candidatos.`titluto_eleitor` AS tb_candidatos_titluto_eleitor,
-     tb_candidatos.`zona_titulo` AS tb_candidatos_zona_titulo,
-     tb_candidatos.`secao_titulo` AS tb_candidatos_secao_titulo,
-     tb_candidatos.`carteira_clt` AS tb_candidatos_carteira_clt,
-     tb_candidatos.`serie_clt` AS tb_candidatos_serie_clt,
-     tb_candidatos.`estado_emissor_clt` AS tb_candidatos_estado_emissor_clt,
-     tb_candidatos.`reservista` AS tb_candidatos_reservista,
-     tb_candidatos.`categoria_reservista` AS tb_candidatos_categoria_reservista,
-     tb_candidatos.`pis_pasep` AS tb_candidatos_pis_pasep,
-     tb_candidatos.`pis_pasep_num` AS tb_candidatos_pis_pasep_num,
-     tb_candidatos.`ensino_medio` AS tb_candidatos_ensino_medio,
-     tb_candidatos.`nome_curso_tec` AS tb_candidatos_nome_curso_tec,
-     tb_candidatos.`graduacao_inst` AS tb_candidatos_graduacao_inst,
-     tb_candidatos.`nome_curso_graduacao` AS tb_candidatos_nome_curso_graduacao,
-     tb_candidatos.`pos_graduacao_inst` AS tb_candidatos_pos_graduacao_inst,
-     tb_candidatos.`data_pos_graduacao` AS tb_candidatos_data_pos_graduacao,
-     tb_candidatos.`nome_curso_pos_graduacao` AS tb_candidatos_nome_curso_pos_graduacao,
-     tb_candidatos.`data_cadastro_cand` AS tb_candidatos_data_cadastro_cand,
-     tb_candidatos.`conhecimento_info` AS tb_candidatos_conhecimento_info,
-     tb_candidatos.`conhecimento_idioma` AS tb_candidatos_conhecimento_idioma,
-     tb_candidatos.`qual_idioma` AS tb_candidatos_qual_idioma,
-     tb_candidatos.`outros_cursos` AS tb_candidatos_outros_cursos,
-     tb_candidatos.`atual_empresa` AS tb_candidatos_atual_empresa,
-     tb_candidatos.`ultimo_cargo` AS tb_candidatos_ultimo_cargo,
-     tb_candidatos.`endereco_empresa` AS tb_candidatos_endereco_empresa,
-     tb_candidatos.`telefone_empresa` AS tb_candidatos_telefone_empresa,
-     tb_candidatos.`periodo_empresa` AS tb_candidatos_periodo_empresa,
-     tb_candidatos.`ultimo_salario` AS tb_candidatos_ultimo_salario,
-     tb_candidatos.`motivo_saida` AS tb_candidatos_motivo_saida,
-     tb_candidatos.`penultima_empresa` AS tb_candidatos_penultima_empresa,
-     tb_candidatos.`penultimo_cargo` AS tb_candidatos_penultimo_cargo,
-     tb_candidatos.`penultimo_endereco_empresa` AS tb_candidatos_penultimo_endereco_empresa,
-     tb_candidatos.`penultimo_tel_empresa` AS tb_candidatos_penultimo_tel_empresa,
-     tb_candidatos.`penultimo_periodo_empresa` AS tb_candidatos_penultimo_periodo_empresa,
-     tb_candidatos.`penultimo_salario` AS tb_candidatos_penultimo_salario,
-     tb_candidatos.`penultimo_motivo_saida` AS tb_candidatos_penultimo_motivo_saida,
-     tb_candidatos.`cargo_pretendido` AS tb_candidatos_cargo_pretendido,
-     tb_candidatos.`pretensao_salarial` AS tb_candidatos_pretensao_salarial,
-     tb_candidatos.`submete_experiencia` AS tb_candidatos_submete_experiencia,
-     tb_candidatos.`pagou_contribuicao` AS tb_candidatos_pagou_contribuicao
-FROM
-     `tb_candidatos` tb_candidatos
-WHERE
-     tb_candidatos.`data_cadastro_cand`
-BETWEEN
- $P{data_inicio} AND $P{data_fim}
-ORDER BY
-     tb_candidatos.`data_cadastro_cand` ASC]]>
+		<![CDATA[SELECT dho.endereco.bairro AS Bairro,
+	dho.endereco.cep AS Cep,
+	dho.endereco.complemento AS Complemento,
+	dho.endereco.logradouro AS Rua,
+	dho.endereco.numero AS Numero,
+	dho.candidato.data_nascimento AS Data_Nascimento,
+	dho.candidato.email AS Email,
+	dho.candidato.estado_civil AS Estado_Civil,
+	dho.candidato.idade AS Idade,
+	dho.candidato.naturalidade AS Naturalidade,
+	dho.candidato.nome AS Nome,
+	dho.candidato.raca AS Raça,
+	dho.cidade.nome AS Cidade,
+	dho.estado.nome AS Estado,
+	dho.documentos.carteira_trab AS Carteira_Trabalho,
+	dho.documentos.categoria AS Categoria,
+	dho.documentos.cpf AS CPF,
+	dho.documentos.data_emissao_ct AS Data_Emissao_CLT,
+	dho.documentos.data_emissao_rg AS Data_Emissao_RG,
+	dho.documentos.numero_pis AS PIS,
+	dho.documentos.numero_reservista AS Reservista,
+	dho.documentos.orgao_emissor_rg AS Orgao_Emissor,
+	dho.documentos.pis_pasep AS Pis_Pasep,
+	dho.documentos.rg AS RG,
+	dho.documentos.secao AS Secao,
+	dho.documentos.serie AS Serie,
+	dho.documentos.titulo_eleitor AS Titulo_Eleitor,
+	dho.documentos.zona AS Zona,
+	dho.dados_pessoais.data_cadastro AS Data_Cadastro,
+	dho.dados_pessoais.disp_horario AS Disponibilidade_Horario,
+	dho.dados_pessoais.disp_sab_dom AS Disponibilidade_Sab_Dom,
+	dho.dados_pessoais.fonte_recrutamento AS Fonte_Recrutamento,
+	dho.dados_pessoais.idade_filhos AS Idade_Filhos,
+	dho.dados_pessoais.nome_mae AS Nome_Mae,
+	dho.dados_pessoais.nome_pai AS Nome_Pai,
+	dho.dados_pessoais.nome_parentes AS Nome_Parentes,
+	dho.dados_pessoais.parentes_neobpo AS Parentes_neobpo,
+	dho.dados_pessoais.periodo_trab AS Periodo_trabalhado_neo,
+	dho.dados_pessoais.portador_def AS Portador_deficiencia,
+	dho.dados_pessoais.processo_neobpo AS Processo_neobpo,
+	dho.dados_pessoais.quais_conducoes AS Quais_Conducoes,
+	dho.dados_pessoais.quais_produtos AS Quais_Produtos,
+	dho.dados_pessoais.qual_def AS Qual_Deficiencia,
+	dho.dados_pessoais.qual_produto AS Qual_Produto,
+	dho.dados_pessoais.quantas_conducoes AS Quantas_Conducoes,
+	dho.dados_pessoais.quanto_tempo AS Quanto_Tempo,
+	dho.dados_pessoais.tem_filhos AS Tem_Filhos,
+	dho.dados_pessoais.tipo_telemk AS Tipo_Telemarketing,
+	dho.dados_pessoais.trab_neo_tvt_tel AS Trabalhou_Neobpo,
+	dho.dados_pessoais.trabalhou_telemk AS Trabalhou_Telemarkting,
+	dho.dados_pessoais.valor_conducao AS Valor_Conducao,
+	dho.telefone.telefones AS Telefones,
+	dho.formacao_educacional.conclusao_ens_med AS Conclusao_Ensino_Medio,
+	dho.formacao_educacional.conclusao_previsao_pos AS Conclusao_Pos_Graducao,
+	dho.formacao_educacional.conclusao_previsao_sup AS Conclusao_Superior,
+	dho.formacao_educacional.inst_ensino_medio AS Ensino_Medio,
+	dho.formacao_educacional.inst_graduacao_sup AS Inst_Graduacao_Superior,
+	dho.formacao_educacional.inst_pos_graduacao AS Inst_Pos_Graduacao,
+	dho.formacao_educacional.nome_curso_pos AS Nome_Curso_Pos,
+	dho.formacao_educacional.nome_curso_sup AS Nome_Curso_Superios,
+	dho.formacao_educacional.nome_curso_tec AS Nome_Curso_Tecnico,
+	dho.outros_cursos.conhece_idioma AS Conhece_Idioma,
+	dho.outros_cursos.conhece_infor AS Conhecimento_Informatica,
+	dho.outros_cursos.outros_cursos AS Outros_Cursos,
+	dho.outros_cursos.qual_idioma AS Qual_Idioma,
+	dho.experiencia_profissional.empresa_atual_ultima AS Empresa_Atual,
+	dho.experiencia_profissional.endereco AS Endereco_Empresa,
+	dho.experiencia_profissional.periodo_trab AS Periodo_Trabalhado,
+	dho.experiencia_profissional.telefone AS Telefone_Empresa,
+	dho.experiencia_profissional.ultimo_salario AS Ultimo_Salario,
+	dho.experiencia_profissional.ultimo_cargo AS Ultimo_Cargo,
+	dho.condicoes_admissao.cargo_pretendido AS Cargo_Pretendido,
+	dho.condicoes_admissao.pagou_cont_sindical AS Pagou_Cont_Sindical,
+	dho.condicoes_admissao.periodo_experiencia AS Periodo_Experiencia,
+	dho.condicoes_admissao.pretensao_salarial AS Pretensao_Salarial
+FROM dho.candidato
+
+	INNER JOIN dho.condicoes_admissao ON 
+	 dho.condicoes_admissao.candidato_cod = dho.candidato.codigo 
+	 
+	INNER JOIN dho.experiencia_profissional ON 
+	 dho.experiencia_profissional.candidato_cod = dho.candidato.codigo
+	 
+	INNER JOIN dho.outros_cursos ON 
+	 dho.outros_cursos.candidato_cod = dho.candidato.codigo 
+	 
+	INNER JOIN dho.formacao_educacional ON 
+	 dho.formacao_educacional.candidato_cod = dho.candidato.codigo 
+	 
+	INNER JOIN dho.telefone ON 
+	 dho.telefone.candidato_codigo = dho.candidato.codigo 
+	 
+	INNER JOIN dho.documentos ON 
+	 dho.documentos.candidato_cod = dho.candidato.codigo 
+	 
+	INNER JOIN dho.dados_pessoais ON 
+	 dho.dados_pessoais.candidato_cod = dho.candidato.codigo 
+	 
+	INNER JOIN dho.endereco ON 
+	 dho.endereco.candidato_cod = dho.candidato.codigo 
+	 
+	INNER JOIN dho.cidade ON 
+	 dho.endereco.cidade_cod = dho.cidade.codigo 
+	 
+	INNER JOIN dho.estado ON 
+	 dho.cidade.estado_cod = dho.estado.codigo]]>
 	</queryString>
-	<field name="tb_candidatos_data_nasci" class="java.lang.String"/>
-	<field name="tb_candidatos_data_emissao_rg" class="java.lang.String"/>
-	<field name="tb_candidatos_data_emissao_clt" class="java.lang.String"/>
-	<field name="tb_candidatos_data_conclusao_ensino" class="java.lang.String"/>
-	<field name="tb_candidatos_data_graduacao" class="java.lang.String"/>
-	<field name="tb_candidatos_data_cadastro_cand" class="java.lang.String"/>
-	<field name="tb_candidatos_consult_indiqueAmigo_outros" class="java.lang.String"/>
-	<field name="tb_candidatos_fonte_recrutamento" class="java.lang.String"/>
-	<field name="tb_candidatos_nomecompleto" class="java.lang.String"/>
-	<field name="tb_candidatos_email" class="java.lang.String"/>
-	<field name="tb_candidatos_cep" class="java.lang.String"/>
-	<field name="tb_candidatos_rua" class="java.lang.String"/>
-	<field name="tb_candidatos_bairro" class="java.lang.String"/>
-	<field name="tb_candidatos_numero" class="java.lang.Integer"/>
-	<field name="tb_candidatos_complemento" class="java.lang.String"/>
-	<field name="tb_candidatos_cidade" class="java.lang.String"/>
-	<field name="tb_candidatos_uf" class="java.lang.String"/>
-	<field name="tb_candidatos_pais" class="java.lang.String"/>
-	<field name="tb_candidatos_sexo" class="java.lang.String"/>
-	<field name="tb_candidatos_idade" class="java.lang.String"/>
-	<field name="tb_candidatos_estado_civil" class="java.lang.String"/>
-	<field name="tb_candidatos_nome_mae" class="java.lang.String"/>
-	<field name="tb_candidatos_nome_pai" class="java.lang.String"/>
-	<field name="tb_candidatos_raca" class="java.lang.String"/>
-	<field name="tb_candidatos_celular" class="java.lang.String"/>
-	<field name="tb_candidatos_telefone" class="java.lang.String"/>
-	<field name="tb_candidatos_filhos" class="java.lang.String"/>
-	<field name="tb_candidatos_nome_filhos" class="java.lang.String"/>
-	<field name="tb_candidatos_qnt_conducoes" class="java.lang.String"/>
-	<field name="tb_candidatos_valor_conducao" class="java.lang.Float"/>
-	<field name="tb_candidatos_transportes" class="java.lang.String"/>
-	<field name="tb_candidatos_outros_transportes" class="java.lang.String"/>
-	<field name="tb_candidatos_horario_disposnivel" class="java.lang.String"/>
-	<field name="tb_candidatos_especificar_horario" class="java.lang.String"/>
-	<field name="tb_candidatos_disp_sab_dom" class="java.lang.String"/>
-	<field name="tb_candidatos_trabalhou_tivit" class="java.lang.String"/>
-	<field name="tb_candidatos_periodo_trab_tivit" class="java.lang.String"/>
-	<field name="tb_candidatos_tempo_trab_telemrk" class="java.lang.String"/>
-	<field name="tb_candidatos_part_proc_tivit_neobpo" class="java.lang.String"/>
-	<field name="tb_candidatos_produto_proc_seletivo" class="java.lang.String"/>
-	<field name="tb_candidatos_trabalhou_telemrk" class="java.lang.String"/>
-	<field name="tb_candidatos_tipo_telemrk" class="java.lang.String"/>
-	<field name="tb_candidatos_parentes_neobpo" class="java.lang.String"/>
-	<field name="tb_candidatos_nome_parente" class="java.lang.String"/>
-	<field name="tb_candidatos_portador_deficiencia" class="java.lang.String"/>
-	<field name="tb_candidatos_tipo_deficiencia" class="java.lang.String"/>
-	<field name="tb_candidatos_cpf" class="java.lang.String"/>
-	<field name="tb_candidatos_rg" class="java.lang.String"/>
-	<field name="tb_candidatos_orgao_emissor_rg" class="java.lang.String"/>
-	<field name="tb_candidatos_titluto_eleitor" class="java.lang.String"/>
-	<field name="tb_candidatos_zona_titulo" class="java.lang.String"/>
-	<field name="tb_candidatos_secao_titulo" class="java.lang.String"/>
-	<field name="tb_candidatos_carteira_clt" class="java.lang.String"/>
-	<field name="tb_candidatos_serie_clt" class="java.lang.String"/>
-	<field name="tb_candidatos_estado_emissor_clt" class="java.lang.String"/>
-	<field name="tb_candidatos_reservista" class="java.lang.String"/>
-	<field name="tb_candidatos_categoria_reservista" class="java.lang.String"/>
-	<field name="tb_candidatos_pis_pasep" class="java.lang.String"/>
-	<field name="tb_candidatos_pis_pasep_num" class="java.lang.String"/>
-	<field name="tb_candidatos_ensino_medio" class="java.lang.String"/>
-	<field name="tb_candidatos_nome_curso_tec" class="java.lang.String"/>
-	<field name="tb_candidatos_graduacao_inst" class="java.lang.String"/>
-	<field name="tb_candidatos_nome_curso_graduacao" class="java.lang.String"/>
-	<field name="tb_candidatos_pos_graduacao_inst" class="java.lang.String"/>
-	<field name="tb_candidatos_data_pos_graduacao" class="java.lang.String"/>
-	<field name="tb_candidatos_nome_curso_pos_graduacao" class="java.lang.String"/>
-	<field name="tb_candidatos_conhecimento_info" class="java.lang.String"/>
-	<field name="tb_candidatos_conhecimento_idioma" class="java.lang.String"/>
-	<field name="tb_candidatos_qual_idioma" class="java.lang.String"/>
-	<field name="tb_candidatos_outros_cursos" class="java.lang.String"/>
-	<field name="tb_candidatos_atual_empresa" class="java.lang.String"/>
-	<field name="tb_candidatos_ultimo_cargo" class="java.lang.String"/>
-	<field name="tb_candidatos_endereco_empresa" class="java.lang.String"/>
-	<field name="tb_candidatos_telefone_empresa" class="java.lang.String"/>
-	<field name="tb_candidatos_periodo_empresa" class="java.lang.String"/>
-	<field name="tb_candidatos_ultimo_salario" class="java.lang.String"/>
-	<field name="tb_candidatos_motivo_saida" class="java.lang.String"/>
-	<field name="tb_candidatos_penultima_empresa" class="java.lang.String"/>
-	<field name="tb_candidatos_penultimo_cargo" class="java.lang.String"/>
-	<field name="tb_candidatos_penultimo_endereco_empresa" class="java.lang.String"/>
-	<field name="tb_candidatos_penultimo_tel_empresa" class="java.lang.String"/>
-	<field name="tb_candidatos_penultimo_periodo_empresa" class="java.lang.String"/>
-	<field name="tb_candidatos_penultimo_salario" class="java.lang.String"/>
-	<field name="tb_candidatos_penultimo_motivo_saida" class="java.lang.String"/>
-	<field name="tb_candidatos_cargo_pretendido" class="java.lang.String"/>
-	<field name="tb_candidatos_pretensao_salarial" class="java.lang.String"/>
-	<field name="tb_candidatos_submete_experiencia" class="java.lang.String"/>
-	<field name="tb_candidatos_pagou_contribuicao" class="java.lang.String"/>
+	<field name="Bairro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Bairro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="endereco"/>
+	</field>
+	<field name="Cep" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Cep"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="endereco"/>
+	</field>
+	<field name="Complemento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Complemento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="endereco"/>
+	</field>
+	<field name="Rua" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Rua"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="endereco"/>
+	</field>
+	<field name="Numero" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Numero"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="endereco"/>
+	</field>
+	<field name="Data_Nascimento" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="Data_Nascimento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="candidato"/>
+	</field>
+	<field name="Email" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Email"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="candidato"/>
+	</field>
+	<field name="Estado_Civil" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Estado_Civil"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="candidato"/>
+	</field>
+	<field name="Idade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Idade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="candidato"/>
+	</field>
+	<field name="Naturalidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Naturalidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="candidato"/>
+	</field>
+	<field name="Nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="candidato"/>
+	</field>
+	<field name="Raça" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Raça"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="candidato"/>
+	</field>
+	<field name="Cidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Cidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="cidade"/>
+	</field>
+	<field name="Estado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Estado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="estado"/>
+	</field>
+	<field name="Carteira_Trabalho" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Carteira_Trabalho"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Categoria" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Categoria"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="CPF" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="CPF"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Data_Emissao_CLT" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="Data_Emissao_CLT"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Data_Emissao_RG" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="Data_Emissao_RG"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="PIS" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="PIS"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Reservista" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Reservista"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Orgao_Emissor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Orgao_Emissor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Pis_Pasep" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Pis_Pasep"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="RG" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="RG"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Secao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Secao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Serie" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Serie"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Titulo_Eleitor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Titulo_Eleitor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Zona" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Zona"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="documentos"/>
+	</field>
+	<field name="Data_Cadastro" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="Data_Cadastro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Disponibilidade_Horario" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Disponibilidade_Horario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Disponibilidade_Sab_Dom" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Disponibilidade_Sab_Dom"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Fonte_Recrutamento" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Fonte_Recrutamento"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Idade_Filhos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Idade_Filhos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Nome_Mae" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Nome_Mae"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Nome_Pai" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Nome_Pai"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Nome_Parentes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Nome_Parentes"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Parentes_neobpo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Parentes_neobpo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Periodo_trabalhado_neo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Periodo_trabalhado_neo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Portador_deficiencia" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Portador_deficiencia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Processo_neobpo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Processo_neobpo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Quais_Conducoes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Quais_Conducoes"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Quais_Produtos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Quais_Produtos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Qual_Deficiencia" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Qual_Deficiencia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Qual_Produto" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Qual_Produto"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Quantas_Conducoes" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Quantas_Conducoes"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Quanto_Tempo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Quanto_Tempo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Tem_Filhos" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Tem_Filhos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Tipo_Telemarketing" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Tipo_Telemarketing"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Trabalhou_Neobpo" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Trabalhou_Neobpo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Trabalhou_Telemarkting" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Trabalhou_Telemarkting"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Valor_Conducao" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Valor_Conducao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="dados_pessoais"/>
+	</field>
+	<field name="Telefones" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Telefones"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="telefone"/>
+	</field>
+	<field name="Conclusao_Ensino_Medio" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="Conclusao_Ensino_Medio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="formacao_educacional"/>
+	</field>
+	<field name="Conclusao_Pos_Graducao" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="Conclusao_Pos_Graducao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="formacao_educacional"/>
+	</field>
+	<field name="Conclusao_Superior" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="Conclusao_Superior"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="formacao_educacional"/>
+	</field>
+	<field name="Ensino_Medio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Ensino_Medio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="formacao_educacional"/>
+	</field>
+	<field name="Inst_Graduacao_Superior" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Inst_Graduacao_Superior"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="formacao_educacional"/>
+	</field>
+	<field name="Inst_Pos_Graduacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Inst_Pos_Graduacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="formacao_educacional"/>
+	</field>
+	<field name="Nome_Curso_Pos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Nome_Curso_Pos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="formacao_educacional"/>
+	</field>
+	<field name="Nome_Curso_Superios" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Nome_Curso_Superios"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="formacao_educacional"/>
+	</field>
+	<field name="Nome_Curso_Tecnico" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Nome_Curso_Tecnico"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="formacao_educacional"/>
+	</field>
+	<field name="Conhece_Idioma" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Conhece_Idioma"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="outros_cursos"/>
+	</field>
+	<field name="Conhecimento_Informatica" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Conhecimento_Informatica"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="outros_cursos"/>
+	</field>
+	<field name="Outros_Cursos" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Outros_Cursos"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="outros_cursos"/>
+	</field>
+	<field name="Qual_Idioma" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Qual_Idioma"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="outros_cursos"/>
+	</field>
+	<field name="Empresa_Atual" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Empresa_Atual"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="experiencia_profissional"/>
+	</field>
+	<field name="Endereco_Empresa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Endereco_Empresa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="experiencia_profissional"/>
+	</field>
+	<field name="Periodo_Trabalhado" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Periodo_Trabalhado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="experiencia_profissional"/>
+	</field>
+	<field name="Telefone_Empresa" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Telefone_Empresa"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="experiencia_profissional"/>
+	</field>
+	<field name="Ultimo_Salario" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Ultimo_Salario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="experiencia_profissional"/>
+	</field>
+	<field name="Ultimo_Cargo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Ultimo_Cargo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="experiencia_profissional"/>
+	</field>
+	<field name="Cargo_Pretendido" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Cargo_Pretendido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="condicoes_admissao"/>
+	</field>
+	<field name="Pagou_Cont_Sindical" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Pagou_Cont_Sindical"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="condicoes_admissao"/>
+	</field>
+	<field name="Periodo_Experiencia" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="Periodo_Experiencia"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="condicoes_admissao"/>
+	</field>
+	<field name="Pretensao_Salarial" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.label" value="Pretensao_Salarial"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="condicoes_admissao"/>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -272,17 +499,17 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Data:]]></text>
 			</staticText>
-			<textField>
+			<textField pattern="d MMMM yyyy">
 				<reportElement x="297" y="77" width="101" height="37" uuid="2597f5b2-900a-4243-adac-6ddc87d719f1"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_data_cadastro_cand}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Data_Cadastro}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="327" y="17" width="134" height="29" uuid="6e91efd8-7208-4c4a-b19e-e24a0f39bc2c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[RHC-FOR-002-027]]></text>
 			</staticText>
@@ -303,9 +530,9 @@ ORDER BY
 			<staticText>
 				<reportElement x="461" y="17" width="94" height="29" uuid="877e657c-03db-473f-87cb-7cdd6e4fd4c0"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
-				<text><![CDATA[6]]></text>
+				<text><![CDATA[8]]></text>
 			</staticText>
 			<rectangle>
 				<reportElement x="0" y="137" width="555" height="20" uuid="7f78b9c4-6e62-434d-8dc4-90a2efad4f80"/>
@@ -463,7 +690,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_nomecompleto}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Nome}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="137" width="101" height="19" uuid="b0302929-610f-4c26-91c9-a140907851e0"/>
@@ -477,7 +704,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_fonte_recrutamento}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Fonte_Recrutamento}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="248" y="137" width="55" height="19" uuid="9bc803aa-c614-4777-98af-7b4cab298e68"/>
@@ -491,7 +718,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_consult_indiqueAmigo_outros}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Fonte_Recrutamento}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="177" width="31" height="19" uuid="d172f163-669b-4df7-bdf1-f945abcc43e8"/>
@@ -501,25 +728,25 @@ ORDER BY
 				<text><![CDATA[E-mail:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="45" y="177" width="219" height="19" uuid="b3144455-6a7b-401d-856a-00a8f8473f01"/>
+				<reportElement x="44" y="177" width="221" height="19" uuid="b3144455-6a7b-401d-856a-00a8f8473f01"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_email}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Email}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="275" y="177" width="38" height="19" uuid="ac8aef5d-aa20-407b-b6b6-098731533f13"/>
+				<reportElement x="270" y="177" width="38" height="19" uuid="ac8aef5d-aa20-407b-b6b6-098731533f13"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Telefone:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="313" y="177" width="85" height="19" uuid="ea89662b-7ee3-4c8e-9b82-5c7f35da36f6"/>
+				<reportElement x="308" y="177" width="90" height="19" uuid="ea89662b-7ee3-4c8e-9b82-5c7f35da36f6"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_telefone}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Telefones}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="402" y="177" width="28" height="19" uuid="74aa4175-d309-48e3-9adf-5d5397564241"/>
@@ -533,42 +760,42 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_celular}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Telefones}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="15" y="114" width="540" height="19" backcolor="#CCCCCC" uuid="352a5f72-49b5-40ca-bb9c-bab023c2c170"/>
+				<reportElement x="0" y="114" width="555" height="23" backcolor="#CCCCCC" uuid="352a5f72-49b5-40ca-bb9c-bab023c2c170"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[DADOS PESSOAIS (sem abreviaturas)]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="13" y="198" width="39" height="19" uuid="47c96d4c-4d2b-428e-b394-5b54df82c76c"/>
+				<reportElement x="13" y="197" width="39" height="19" uuid="47c96d4c-4d2b-428e-b394-5b54df82c76c"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Endereço:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="52" y="197" width="344" height="19" uuid="cdbcf6d1-b695-49d1-99e3-75656ae059c0"/>
+				<reportElement x="52" y="197" width="346" height="19" uuid="cdbcf6d1-b695-49d1-99e3-75656ae059c0"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_rua}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Rua}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="402" y="198" width="37" height="19" uuid="e77386f6-23ea-42a3-8a50-d30dfb420543"/>
+				<reportElement x="402" y="198" width="35" height="19" uuid="e77386f6-23ea-42a3-8a50-d30dfb420543"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Número:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="439" y="198" width="115" height="19" uuid="8b3befb4-5afd-4c31-b05c-5a2794fe4b4f"/>
+				<reportElement x="437" y="198" width="115" height="19" uuid="8b3befb4-5afd-4c31-b05c-5a2794fe4b4f"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_numero}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Numero}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="218" width="31" height="19" uuid="9fa0f8c2-cecd-44b5-9ef7-566f107647cc"/>
@@ -582,7 +809,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_bairro}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Bairro}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="174" y="217" width="30" height="19" uuid="6f6a689b-2277-462a-a929-fa1b50cdd73e"/>
@@ -592,28 +819,28 @@ ORDER BY
 				<text><![CDATA[Cidade:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="204" y="217" width="192" height="19" uuid="2ea0ed3b-5482-408e-8628-11d84cc21b07"/>
+				<reportElement x="204" y="217" width="194" height="19" uuid="2ea0ed3b-5482-408e-8628-11d84cc21b07"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_cidade}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Cidade}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="403" y="217" width="27" height="19" uuid="bf5a9391-5155-4a62-a01c-9e2a1121257c"/>
+				<reportElement x="402" y="217" width="23" height="19" uuid="bf5a9391-5155-4a62-a01c-9e2a1121257c"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Cep:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="430" y="217" width="125" height="19" uuid="76f7a672-27ce-48f4-889d-24e58151e3c9"/>
+				<reportElement x="425" y="217" width="129" height="19" uuid="76f7a672-27ce-48f4-889d-24e58151e3c9"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_cep}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Cep}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="14" y="17" width="40" height="60" uuid="4605d87c-490b-4961-8727-905667df8f91"/>
+				<reportElement x="13" y="17" width="40" height="60" uuid="4605d87c-490b-4961-8727-905667df8f91"/>
 				<imageExpression><![CDATA["C:\\temp\\logo.png"]]></imageExpression>
 			</image>
 			<staticText>
@@ -639,14 +866,14 @@ ORDER BY
 			<staticText>
 				<reportElement x="327" y="63" width="134" height="14" uuid="20e933c5-fe14-4011-992e-526e780fb465"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Interna]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="461" y="63" width="94" height="14" uuid="5fedeeb9-8422-4e34-b523-430d45e1af7e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Vide Rodape]]></text>
 			</staticText>
@@ -664,13 +891,6 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Sexo:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="34" y="257" width="521" height="19" uuid="5f0634fd-7d0e-431a-9b6b-00ad75cf9764"/>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial" size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_sexo}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="13" y="277" width="76" height="19" uuid="ea7cc647-5f71-4dd5-9359-b24abcea2213"/>
 				<textElement verticalAlignment="Middle">
@@ -678,12 +898,12 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Data de Nascimento:]]></text>
 			</staticText>
-			<textField>
+			<textField pattern="dd/MM/yyyy">
 				<reportElement x="89" y="277" width="81" height="19" uuid="611685d1-613d-4643-8e98-8abe14aa6156"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_data_nasci}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Data_Nascimento}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="176" y="277" width="26" height="19" uuid="1e473e10-076a-4d8c-9f0d-23b96b528709"/>
@@ -693,11 +913,11 @@ ORDER BY
 				<text><![CDATA[Idade:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="204" y="277" width="61" height="19" uuid="34575ec1-0e0f-4ed5-8bf4-63b90f9b2b5a"/>
+				<reportElement x="202" y="277" width="63" height="19" uuid="34575ec1-0e0f-4ed5-8bf4-63b90f9b2b5a"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_idade}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Idade}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="276" y="277" width="21" height="19" uuid="9f681601-c7ba-4d62-9400-3d32c05c60c6"/>
@@ -711,7 +931,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_pais}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Naturalidade}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="406" y="277" width="47" height="19" uuid="64ccf438-5741-4a9b-9638-89e1d35b4f5a"/>
@@ -725,7 +945,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_estado_civil}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Estado_Civil}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="317" width="53" height="19" uuid="51acc7a4-98d0-416b-a900-63f3cfef78e4"/>
@@ -739,7 +959,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_nome_mae}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Nome_Mae}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="297" width="53" height="19" uuid="353a5c7a-5d71-41c6-9c18-2ce72d9900e0"/>
@@ -753,7 +973,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_nome_pai}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Nome_Pai}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="337" width="53" height="19" uuid="d0c822b9-e578-4f6d-983d-95fbc96a11ac"/>
@@ -767,7 +987,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_filhos}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Tem_Filhos}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="264" y="337" width="63" height="19" uuid="1e99a74a-9a46-4f8e-9bbc-3512cbc63cae"/>
@@ -781,7 +1001,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_nome_filhos}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Idade_Filhos}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="357" width="101" height="19" uuid="45660307-4a42-4747-992b-5433f203fc40"/>
@@ -795,21 +1015,21 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_qnt_conducoes}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Quantas_Conducoes}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="192" y="357" width="56" height="19" uuid="82378029-b5ca-42c2-a1be-713725670481"/>
+				<reportElement x="192" y="357" width="49" height="19" uuid="82378029-b5ca-42c2-a1be-713725670481"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Qual Valor?]]></text>
 			</staticText>
 			<textField pattern="¤ #,##0.00">
-				<reportElement x="248" y="357" width="79" height="19" uuid="e78771c9-71d3-4e6d-91ca-70c946ed4376"/>
+				<reportElement x="241" y="357" width="79" height="19" uuid="e78771c9-71d3-4e6d-91ca-70c946ed4376"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_valor_conducao}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Valor_Conducao}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="327" y="357" width="32" height="19" uuid="c65c928b-e1fe-42a0-8392-4a1620636b28"/>
@@ -823,7 +1043,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_transportes}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Quais_Conducoes}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="377" width="100" height="19" uuid="7db3de50-cf2f-485b-80c4-e0718ee948f5"/>
@@ -833,11 +1053,11 @@ ORDER BY
 				<text><![CDATA[Disponibilidade de horário:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="115" y="377" width="75" height="19" uuid="4e8a8699-a2e5-4388-b4b4-dd157ee34db8"/>
+				<reportElement x="114" y="377" width="76" height="19" uuid="4e8a8699-a2e5-4388-b4b4-dd157ee34db8"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_horario_disposnivel}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Disponibilidade_Horario}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="190" y="377" width="198" height="19" uuid="7c7e41c5-88fa-4ec6-a161-222cbbaf2db0"/>
@@ -851,7 +1071,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_disp_sab_dom}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Disponibilidade_Sab_Dom}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="417" width="215" height="19" uuid="e86257c9-5777-42af-aa3a-5858bafae164"/>
@@ -865,7 +1085,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_part_proc_tivit_neobpo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Processo_neobpo}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="263" y="418" width="77" height="19" uuid="3d4c39d4-fbaf-400f-a8f8-e8020c703b47"/>
@@ -879,7 +1099,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_produto_proc_seletivo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Qual_Produto}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="438" width="134" height="19" uuid="d2de3c77-0b24-4813-b356-6a1311e6ab90"/>
@@ -889,11 +1109,11 @@ ORDER BY
 				<text><![CDATA[Você já trabalhou em Telemarketing?]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="148" y="438" width="29" height="19" uuid="d65d58ac-0c5f-4cb0-a6cf-99f0d2644cf1"/>
+				<reportElement x="148" y="436" width="29" height="21" uuid="d65d58ac-0c5f-4cb0-a6cf-99f0d2644cf1"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_trabalhou_telemrk}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Trabalhou_Telemarkting}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="231" y="438" width="56" height="19" uuid="fedd9361-d43d-4e92-9f2f-9a0561c35d37"/>
@@ -903,11 +1123,11 @@ ORDER BY
 				<text><![CDATA[Quanto tempo?]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="287" y="438" width="39" height="19" uuid="a18e1d54-a1ac-4fa8-8f8d-51a616d3dc4c"/>
+				<reportElement x="288" y="438" width="53" height="19" uuid="a18e1d54-a1ac-4fa8-8f8d-51a616d3dc4c"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_tempo_trab_telemrk}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Quanto_Tempo}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="352" y="438" width="44" height="19" uuid="b067aeba-2596-4c96-84f6-156948c69417"/>
@@ -921,7 +1141,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_tipo_telemrk}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Tipo_Telemarketing}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="457" width="118" height="19" uuid="d9c115ff-86b3-4d59-9ba0-d8343d083f96"/>
@@ -935,21 +1155,21 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_parentes_neobpo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Parentes_neobpo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="204" y="457" width="44" height="19" uuid="d4b15eea-285d-4fad-a401-68b97c6dffbd"/>
+				<reportElement x="204" y="457" width="41" height="19" uuid="d4b15eea-285d-4fad-a401-68b97c6dffbd"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[-  Nome:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="248" y="457" width="307" height="19" uuid="1cce03dc-08e6-4975-b5ec-34718557bc59"/>
+				<reportElement x="245" y="457" width="309" height="19" uuid="1cce03dc-08e6-4975-b5ec-34718557bc59"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_nome_parente}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Nome_Parentes}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="478" width="101" height="19" uuid="d8df6548-e5a2-4e61-b744-975050e88122"/>
@@ -963,7 +1183,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_portador_deficiencia}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Portador_deficiencia}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="204" y="478" width="27" height="19" uuid="a5768f6e-cd74-4e82-8dc2-535aa6f6032e"/>
@@ -977,7 +1197,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_tipo_deficiencia}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Qual_Deficiencia}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="0" y="497" width="554" height="19" backcolor="#FFFFFF" uuid="7b8c39c2-7889-4ab4-bf08-c1e9fee9e089"/>
@@ -1005,7 +1225,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_rg}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{RG}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="218" y="517" width="69" height="19" uuid="ac58a8cc-b65e-43f8-b01e-5fbc784cdd64"/>
@@ -1014,26 +1234,26 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Data de Emissão:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="292" y="517" width="93" height="19" uuid="f3fa4ca9-ee73-4b42-927b-dbea67899cfc"/>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="287" y="517" width="98" height="19" uuid="f3fa4ca9-ee73-4b42-927b-dbea67899cfc"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_data_emissao_rg}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Data_Emissao_RG}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="388" y="517" width="65" height="19" uuid="45582391-4193-4cc7-9b70-496224b266aa"/>
+				<reportElement x="388" y="517" width="61" height="19" uuid="45582391-4193-4cc7-9b70-496224b266aa"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Órgão Emissor:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="453" y="517" width="101" height="19" uuid="f59b90d1-7268-4b2c-a45a-86a0195a76ea"/>
+				<reportElement x="449" y="517" width="105" height="19" uuid="f59b90d1-7268-4b2c-a45a-86a0195a76ea"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_orgao_emissor_rg}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Orgao_Emissor}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="537" width="59" height="19" uuid="7c4a6a6a-78f2-4a33-bb81-9a1c460f64f8"/>
@@ -1047,35 +1267,35 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_titluto_eleitor}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Titulo_Eleitor}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="218" y="537" width="33" height="19" uuid="e6da64b8-7e0c-4e35-8da5-3e8b863e94de"/>
+				<reportElement x="218" y="537" width="26" height="19" uuid="e6da64b8-7e0c-4e35-8da5-3e8b863e94de"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Zona:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="248" y="537" width="44" height="19" uuid="0ce6397f-704f-47a4-b103-be0ae9b193ce"/>
+				<reportElement x="244" y="537" width="44" height="19" uuid="0ce6397f-704f-47a4-b103-be0ae9b193ce"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_zona_titulo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Zona}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="297" y="537" width="35" height="19" uuid="8e5fb50b-ba9d-496f-a33f-d2e81bee0651"/>
+				<reportElement x="297" y="537" width="30" height="19" uuid="8e5fb50b-ba9d-496f-a33f-d2e81bee0651"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Seção:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="332" y="537" width="53" height="19" uuid="de210e34-0914-4092-9d3c-443608625f51"/>
+				<reportElement x="327" y="537" width="58" height="19" uuid="de210e34-0914-4092-9d3c-443608625f51"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_secao_titulo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Secao}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="388" y="537" width="24" height="19" uuid="d691afe4-4f4c-4641-b494-75b5685bdcae"/>
@@ -1089,21 +1309,21 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_pis_pasep}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Pis_Pasep}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="447" y="537" width="14" height="19" uuid="95129fe0-68da-4ed4-abc7-5d7e49856460"/>
+				<reportElement x="444" y="537" width="14" height="19" uuid="95129fe0-68da-4ed4-abc7-5d7e49856460"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Nº:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="461" y="537" width="94" height="19" uuid="295b6750-2b18-4375-869b-af756da9f194"/>
+				<reportElement x="458" y="537" width="97" height="19" uuid="295b6750-2b18-4375-869b-af756da9f194"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_pis_pasep_num}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{PIS}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="557" width="20" height="19" uuid="5f1e5ad1-c898-4778-ad02-8c7dc8390adf"/>
@@ -1117,7 +1337,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_cpf}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{CPF}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="218" y="557" width="57" height="19" uuid="252636ab-a435-46b1-9e11-1b314e514155"/>
@@ -1131,7 +1351,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_reservista}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Reservista}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="388" y="557" width="51" height="19" uuid="5b1688c6-1037-4d18-9557-4c3cd429c723"/>
@@ -1145,7 +1365,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_categoria_reservista}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Categoria}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="577" width="88" height="19" uuid="19cc9706-6b87-41ae-9d60-011a193ede2a"/>
@@ -1159,21 +1379,21 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_carteira_clt}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Carteira_Trabalho}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="218" y="577" width="30" height="19" uuid="f55458fe-a1d6-4d6d-8868-baf3cd5113b5"/>
+				<reportElement x="218" y="577" width="26" height="19" uuid="f55458fe-a1d6-4d6d-8868-baf3cd5113b5"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Série:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="251" y="577" width="76" height="19" uuid="4360b97e-6b06-4927-9240-340eecd542b6"/>
+				<reportElement x="244" y="577" width="83" height="19" uuid="4360b97e-6b06-4927-9240-340eecd542b6"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_serie_clt}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Serie}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="332" y="577" width="64" height="19" uuid="b6b0ffb7-3666-4050-b82b-7f8be3ddd708"/>
@@ -1187,21 +1407,21 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_data_emissao_clt}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Data_Emissao_CLT}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="471" y="577" width="60" height="19" uuid="646331cd-0141-43f1-815d-53decdb3e55e"/>
+				<reportElement x="465" y="577" width="60" height="19" uuid="646331cd-0141-43f1-815d-53decdb3e55e"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Estado Emissor:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="531" y="577" width="24" height="19" uuid="2e9994ee-5170-4682-b3a1-9adadd1bf913"/>
+				<reportElement x="525" y="577" width="29" height="19" uuid="2e9994ee-5170-4682-b3a1-9adadd1bf913"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_estado_emissor_clt}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Estado}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="617" width="100" height="19" uuid="6d4451f3-611c-47ec-93a4-a12309397126"/>
@@ -1215,7 +1435,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_ensino_medio}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Ensino_Medio}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="637" width="52" height="19" uuid="bf9378e0-09af-496e-bec0-e348a047cb57"/>
@@ -1224,12 +1444,12 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Conclusão:]]></text>
 			</staticText>
-			<textField>
+			<textField pattern="dd/MM/yyyy">
 				<reportElement x="66" y="637" width="149" height="19" uuid="da52f008-161f-489f-ab4f-3881d400c509"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_data_conclusao_ensino}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Conclusao_Ensino_Medio}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="215" y="637" width="117" height="19" uuid="b516e5fd-8f8a-4bc9-8812-e0ebaef58bec"/>
@@ -1243,7 +1463,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_nome_curso_tec}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Nome_Curso_Tecnico}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="657" width="88" height="19" uuid="b9dede52-b5dd-4ee8-acea-c55b1d7793a1"/>
@@ -1257,7 +1477,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_graduacao_inst}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Inst_Graduacao_Superior}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="677" width="75" height="19" uuid="f6c4d504-1f3f-4e54-a9c9-9f0dc941aed0"/>
@@ -1266,12 +1486,12 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Conclusão/Previsão:]]></text>
 			</staticText>
-			<textField>
+			<textField pattern="dd/MM/yyyy">
 				<reportElement x="89" y="677" width="126" height="19" uuid="b0581f23-3871-4d5f-9ed1-3cd7fb5eb2d6"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_data_graduacao}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Conclusao_Superior}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="215" y="677" width="33" height="19" uuid="79c849d6-1a06-4734-b32e-7378ba18e943"/>
@@ -1285,7 +1505,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_nome_curso_graduacao}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Nome_Curso_Superios}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="697" width="160" height="19" uuid="2aead4b9-bb88-4a06-8360-a03a5659022c"/>
@@ -1299,7 +1519,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_pos_graduacao_inst}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Inst_Pos_Graduacao}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="14" y="717" width="75" height="19" uuid="3b39fc5d-f756-41e4-be17-7890c0ebd779"/>
@@ -1308,12 +1528,12 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Conclusão/Previsão:]]></text>
 			</staticText>
-			<textField>
+			<textField pattern="dd/MM/yyyy">
 				<reportElement x="89" y="717" width="142" height="19" uuid="a5690200-26a4-47e2-a5f2-39c3bf2ed9c3"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_data_pos_graduacao}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Conclusao_Pos_Graducao}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="233" y="717" width="31" height="19" uuid="454a4876-f275-4e7f-b755-f6f38fba820b"/>
@@ -1327,7 +1547,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_nome_curso_pos_graduacao}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Nome_Curso_Pos}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="237" width="29" height="20" uuid="27302a28-2ef2-4165-b2f2-0abc96fceac3"/>
@@ -1341,7 +1561,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_raca}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Raça}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="396" width="134" height="20" uuid="90a86e9c-11c2-4101-8dec-dc0bbfe6eee0"/>
@@ -1351,18 +1571,20 @@ ORDER BY
 				<text><![CDATA[Você já trabalhou na TIVIT/Neobpo?]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="148" y="396" width="97" height="20" uuid="a45de62b-4c57-4d8c-95e5-2e4a61d2a615"/>
+				<reportElement x="148" y="396" width="97" height="20" uuid="a45de62b-4c57-4d8c-95e5-2e4a61d2a615">
+					<property name="com.jaspersoft.studio.element.name" value="tes"/>
+				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_trabalhou_tivit}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Trabalhou_Neobpo}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="245" y="397" width="309" height="19" uuid="d83f95ad-66f5-4d50-b01d-9381e68510cd"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_periodo_trab_tivit}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Periodo_trabalhado_neo}]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="802">
@@ -1438,7 +1660,7 @@ ORDER BY
 				<text><![CDATA[Revisão]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="65" y="0" width="261" height="46" uuid="3fce31ce-1578-41f3-9bf4-500a08069cdc"/>
+				<reportElement x="66" y="0" width="260" height="46" uuid="3fce31ce-1578-41f3-9bf4-500a08069cdc"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
@@ -1529,7 +1751,7 @@ ORDER BY
 				<reportElement x="0" y="337" width="555" height="20" backcolor="#CCCCCC" uuid="43de38e9-e725-4390-9f30-c3b8947e5231"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="2" y="338" width="554" height="19" backcolor="#FFFFFF" uuid="c35e6549-4118-4e3c-8a15-8a0c1851a64f"/>
+				<reportElement x="0" y="338" width="555" height="19" backcolor="#FFFFFF" uuid="c35e6549-4118-4e3c-8a15-8a0c1851a64f"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
@@ -1575,7 +1797,7 @@ ORDER BY
 				<reportElement x="0" y="397" width="555" height="36" uuid="5b14baf0-d83c-4f42-a6df-7e94993a418c"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="2" y="158" width="554" height="19" backcolor="#FFFFFF" uuid="4c8a6ce9-8d8f-4706-b5bb-4d4d90ac82d4"/>
+				<reportElement x="0" y="158" width="555" height="19" backcolor="#FFFFFF" uuid="4c8a6ce9-8d8f-4706-b5bb-4d4d90ac82d4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
@@ -1593,7 +1815,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_conhecimento_info}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Conhecimento_Informatica}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="15" y="117" width="87" height="20" uuid="923fa785-3f1a-43b5-a412-c9609240e68c"/>
@@ -1607,7 +1829,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_conhecimento_idioma}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Conhece_Idioma}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="170" y="117" width="22" height="20" uuid="468edbc9-fdda-4028-8d59-630d2f599892"/>
@@ -1621,7 +1843,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_qual_idioma}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Qual_Idioma}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="15" y="137" width="58" height="20" uuid="f51a198b-5ff6-4720-933b-6e766a33049d"/>
@@ -1631,25 +1853,25 @@ ORDER BY
 				<text><![CDATA[Outros Cursos:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="73" y="138" width="481" height="20" uuid="5418c161-7e1c-41e5-bccf-1369a61e82cd"/>
+				<reportElement x="73" y="138" width="481" height="18" uuid="5418c161-7e1c-41e5-bccf-1369a61e82cd"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_outros_cursos}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Outros_Cursos}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="15" y="177" width="87" height="20" uuid="a7171a96-966f-4041-abc1-f45bec3d431a"/>
+				<reportElement x="15" y="177" width="84" height="20" uuid="a7171a96-966f-4041-abc1-f45bec3d431a"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Empresa Atual/Última:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="102" y="177" width="250" height="20" uuid="5b355801-4b52-4ced-8c3e-6ae428e43b39"/>
+			<textField isBlankWhenNull="true">
+				<reportElement x="99" y="177" width="250" height="20" uuid="5b355801-4b52-4ced-8c3e-6ae428e43b39"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_atual_empresa}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Empresa_Atual}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="359" y="177" width="53" height="20" uuid="5a8520cc-2ec6-4d11-8e67-7fa67b29696f"/>
@@ -1658,12 +1880,12 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Último Cargo:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="412" y="177" width="143" height="20" uuid="5374cd07-91d9-49bd-b05b-1480a0aafea9"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_ultimo_cargo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Ultimo_Cargo}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="15" y="197" width="39" height="20" uuid="92cb6502-f140-4966-8556-cd9ae2ef95ab"/>
@@ -1672,12 +1894,12 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Endereço:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="54" y="197" width="298" height="20" uuid="215e60f7-6a14-4e89-93cc-7ea4fc1e7f73"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_endereco_empresa}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Endereco_Empresa}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="359" y="197" width="37" height="20" uuid="018c1d68-4e35-49bb-be32-d5a9e0022dea"/>
@@ -1686,26 +1908,26 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Telefone:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="396" y="197" width="158" height="20" uuid="fe6ea2ca-4aca-475d-a3f9-1879ea48e232"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_telefone_empresa}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Telefone_Empresa}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="15" y="217" width="37" height="20" uuid="cdf9fff0-7443-4d2c-bc38-bb54efb5f3ef"/>
+				<reportElement x="15" y="217" width="34" height="20" uuid="cdf9fff0-7443-4d2c-bc38-bb54efb5f3ef"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Período:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="54" y="217" width="298" height="20" uuid="7731a6b8-23b6-4404-814c-d239a05e04c4"/>
+				<reportElement x="49" y="217" width="300" height="20" uuid="7731a6b8-23b6-4404-814c-d239a05e04c4"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_periodo_empresa}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Periodo_Trabalhado}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="361" y="217" width="67" height="20" uuid="65e2ce81-11a4-4981-a98c-9862fa10523f"/>
@@ -1714,27 +1936,20 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Último Salário:]]></text>
 			</staticText>
-			<textField>
+			<textField isBlankWhenNull="true">
 				<reportElement x="428" y="217" width="126" height="20" uuid="029a7ca2-c893-43b7-b55e-dd30ea0d00a4"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_ultimo_salario}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Ultimo_Salario}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="15" y="237" width="74" height="20" uuid="6f692d07-47d0-4f9f-9fd8-310d918e5cb9"/>
+				<reportElement x="15" y="237" width="65" height="20" uuid="6f692d07-47d0-4f9f-9fd8-310d918e5cb9"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Motivo da Saída:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="89" y="237" width="465" height="20" uuid="04bf81e1-b066-41c5-bf95-a2324efc6d0b"/>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_motivo_saida}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="15" y="257" width="74" height="20" uuid="46d1f7f6-18af-4174-9796-ba106119bbe3"/>
 				<textElement verticalAlignment="Middle">
@@ -1742,13 +1957,6 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Penultima Empresa:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="89" y="257" width="263" height="20" uuid="cad6c4f0-a65e-4d57-8609-880a7a894ad8"/>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_penultima_empresa}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="364" y="257" width="64" height="20" uuid="990ea54c-4ca5-4509-aab0-cb239bc79f0b"/>
 				<textElement verticalAlignment="Middle">
@@ -1756,27 +1964,13 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Último Cargo:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="428" y="257" width="126" height="20" uuid="793b8fb5-169b-49ba-a185-247b24a59dec"/>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_penultimo_cargo}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="15" y="277" width="51" height="20" uuid="f2438149-3fcb-4ea7-a6a2-7f27db5a9c41"/>
+				<reportElement x="15" y="277" width="39" height="20" uuid="f2438149-3fcb-4ea7-a6a2-7f27db5a9c41"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Endereço:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="66" y="277" width="286" height="20" uuid="045f21ae-f1bd-43c2-a175-d18fa3e58e92"/>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_penultimo_endereco_empresa}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="364" y="277" width="39" height="20" uuid="c29a4a34-249d-474c-b2cb-1b57f3de0c36"/>
 				<textElement verticalAlignment="Middle">
@@ -1784,27 +1978,13 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Telefone:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="402" y="277" width="152" height="20" uuid="6f9110a2-d673-40e6-b05c-5031e12c086f"/>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_penultimo_tel_empresa}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="15" y="297" width="50" height="20" uuid="f3f192a7-913d-4d77-a7a7-f1064f0787e9"/>
+				<reportElement x="15" y="297" width="39" height="20" uuid="f3f192a7-913d-4d77-a7a7-f1064f0787e9"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Período:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="63" y="297" width="289" height="20" uuid="55a6ec0f-4b7f-4408-a274-891fc7128506"/>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_penultimo_periodo_empresa}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="364" y="297" width="64" height="20" uuid="ab198d86-8aee-4a74-8ab2-8482242cba34"/>
 				<textElement verticalAlignment="Middle">
@@ -1812,40 +1992,26 @@ ORDER BY
 				</textElement>
 				<text><![CDATA[Último Salário:]]></text>
 			</staticText>
-			<textField pattern="¤ #,##0.00">
-				<reportElement x="428" y="297" width="126" height="20" uuid="4ec39923-8ff2-4295-94e0-66e5c8c29d2e"/>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_penultimo_salario}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="15" y="317" width="74" height="20" uuid="78ebba85-d424-4760-9120-30dc56913368"/>
+				<reportElement x="15" y="317" width="65" height="20" uuid="78ebba85-d424-4760-9120-30dc56913368"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Motivo da Saída:]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="89" y="317" width="466" height="20" uuid="b1455193-d2e1-43d4-8656-c1e5c7b3400c"/>
-				<textElement verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_penultimo_motivo_saida}]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="15" y="359" width="74" height="16" uuid="d085e41a-148c-4926-95f1-5cc3ce982b9d"/>
+				<reportElement x="15" y="359" width="65" height="16" uuid="d085e41a-148c-4926-95f1-5cc3ce982b9d"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Cargo Pretendido:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="89" y="357" width="187" height="18" uuid="bfe02111-7f78-48d6-b274-3699afb4cd4d"/>
+				<reportElement x="84" y="357" width="192" height="20" uuid="bfe02111-7f78-48d6-b274-3699afb4cd4d"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_cargo_pretendido}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Cargo_Pretendido}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="285" y="357" width="89" height="20" uuid="6d8e12de-88c6-4f04-8c2b-ecf8d8152718"/>
@@ -1859,7 +2025,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_pretensao_salarial}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Pretensao_Salarial}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="15" y="377" width="150" height="20" uuid="eee9ff3d-ce77-4adc-bff9-44253fa1e2d1"/>
@@ -1869,11 +2035,11 @@ ORDER BY
 				<text><![CDATA[Submete-se ao Período de Experiência?]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="165" y="377" width="110" height="20" uuid="f797ad76-6cda-499f-bea7-92a70649aad1"/>
+				<reportElement x="165" y="377" width="111" height="20" uuid="f797ad76-6cda-499f-bea7-92a70649aad1"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_submete_experiencia}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Periodo_Experiencia}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="285" y="377" width="146" height="20" uuid="61d0d651-9b69-4436-b973-7d08787542e2"/>
@@ -1887,7 +2053,7 @@ ORDER BY
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{tb_candidatos_pagou_contribuicao}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Pagou_Cont_Sindical}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="15" y="397" width="128" height="36" uuid="efcfaf4b-4aec-4f6b-b108-1c0157942c8f"/>
