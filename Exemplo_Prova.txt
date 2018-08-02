@@ -1,0 +1,284 @@
+package com.neobpodho.controle;
+
+import com.neobpodho.model.TbProva1Informatica;
+import com.neobpodho.model.TbProva1Matematica;
+import com.neobpodho.model.TbProva1Portugues;
+import com.neobpodho.model.TbProvaDigitacao;
+import com.neobpodho.security.Seguranca;
+import com.neobpodho.service.CadastroProvasService;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
+
+@Named("cadastroProvasBean")
+@ViewScoped
+public class CadastroProvasBean
+  implements Serializable
+{
+  private static final long serialVersionUID = 1L;
+  @Inject
+  private CadastroProvasService cadastroProvasService;
+  private final Seguranca seguranca;
+  private TbProva1Portugues portugues1;
+  private TbProva1Matematica matematica1;
+  private TbProva1Informatica informatica1;
+  private TbProvaDigitacao digitacao;
+  private int quantidadePalavras;
+  private List<String> respostasPT;
+  private List<String> respostasMAT;
+  private List<String> respostasINF;
+  private final List<String> gabaritoPT;
+  private final List<String> gabaritoMAT;
+  private final List<String> gabaritoINF;
+  
+  public CadastroProvasBean()
+  {
+    this.seguranca = new Seguranca();
+    this.portugues1 = new TbProva1Portugues();
+    this.matematica1 = new TbProva1Matematica();
+    this.informatica1 = new TbProva1Informatica();
+    
+    this.digitacao = new TbProvaDigitacao();
+    
+    this.respostasPT = new ArrayList();
+    this.respostasMAT = new ArrayList();
+    this.respostasINF = new ArrayList();
+    this.gabaritoPT = new ArrayList();
+    this.gabaritoMAT = new ArrayList();
+    this.gabaritoINF = new ArrayList();
+    
+    this.gabaritoPT.add("D");
+    this.gabaritoPT.add("B");
+    this.gabaritoPT.add("A");
+    this.gabaritoPT.add("A");
+    this.gabaritoPT.add("B");
+    this.gabaritoPT.add("D");
+    this.gabaritoPT.add("D");
+    this.gabaritoPT.add("A");
+    this.gabaritoPT.add("D");
+    this.gabaritoPT.add("D");
+    
+    this.gabaritoMAT.add("D");
+    this.gabaritoMAT.add("B");
+    this.gabaritoMAT.add("C");
+    this.gabaritoMAT.add("B");
+    this.gabaritoMAT.add("B");
+    this.gabaritoMAT.add("C");
+    this.gabaritoMAT.add("A");
+    this.gabaritoMAT.add("C");
+    this.gabaritoMAT.add("C");
+    this.gabaritoMAT.add("C");
+    
+    this.gabaritoINF.add("C");
+    this.gabaritoINF.add("B");
+    this.gabaritoINF.add("D");
+    this.gabaritoINF.add("D");
+    this.gabaritoINF.add("B");
+    this.gabaritoINF.add("C");
+    this.gabaritoINF.add("D");
+    this.gabaritoINF.add("C");
+    this.gabaritoINF.add("A");
+    this.gabaritoINF.add("B");
+  }
+  
+  private void limpar()
+  {
+    this.portugues1 = new TbProva1Portugues();
+    this.matematica1 = new TbProva1Matematica();
+    this.informatica1 = new TbProva1Informatica();
+    this.digitacao = new TbProvaDigitacao();
+    this.respostasPT = new ArrayList();
+    this.respostasMAT = new ArrayList();
+    this.respostasINF = new ArrayList();
+  }
+  
+  public void salvarProva()
+  {
+    this.respostasPT.add(this.portugues1.getQuestao1());
+    this.respostasPT.add(this.portugues1.getQuestao2());
+    this.respostasPT.add(this.portugues1.getQuestao3());
+    this.respostasPT.add(this.portugues1.getQuestao4());
+    this.respostasPT.add(this.portugues1.getQuestao5());
+    this.respostasPT.add(this.portugues1.getQuestao6());
+    this.respostasPT.add(this.portugues1.getQuestao7());
+    this.respostasPT.add(this.portugues1.getQuestao8());
+    this.respostasPT.add(this.portugues1.getQuestao9());
+    this.respostasPT.add(this.portugues1.getQuestao10());
+    
+    this.respostasMAT.add(this.matematica1.getQuestao1());
+    this.respostasMAT.add(this.matematica1.getQuestao2());
+    this.respostasMAT.add(this.matematica1.getQuestao3());
+    this.respostasMAT.add(this.matematica1.getQuestao4());
+    this.respostasMAT.add(this.matematica1.getQuestao5());
+    this.respostasMAT.add(this.matematica1.getQuestao6());
+    this.respostasMAT.add(this.matematica1.getQuestao7());
+    this.respostasMAT.add(this.matematica1.getQuestao8());
+    this.respostasMAT.add(this.matematica1.getQuestao9());
+    this.respostasMAT.add(this.matematica1.getQuestao10());
+    
+    this.respostasINF.add(this.informatica1.getQuestao1());
+    this.respostasINF.add(this.informatica1.getQuestao2());
+    this.respostasINF.add(this.informatica1.getQuestao3());
+    this.respostasINF.add(this.informatica1.getQuestao4());
+    this.respostasINF.add(this.informatica1.getQuestao5());
+    this.respostasINF.add(this.informatica1.getQuestao6());
+    this.respostasINF.add(this.informatica1.getQuestao7());
+    this.respostasINF.add(this.informatica1.getQuestao8());
+    this.respostasINF.add(this.informatica1.getQuestao9());
+    this.respostasINF.add(this.informatica1.getQuestao10());
+    try
+    {
+      int pontuacao = 0;
+      String situacao = null;
+      int[] nota = new int[10];
+      for (int i = 0; i < nota.length; i++)
+      {
+        if (((String)this.respostasPT.get(i)).equals(this.gabaritoPT.get(i))) {
+          pontuacao++;
+        }
+        if (pontuacao >= 6) {
+          situacao = "Aprovado";
+        } else {
+          situacao = "Reprovado";
+        }
+        this.portugues1.setNomeCandidato(this.seguranca.getNomeUsuario());
+        this.portugues1.setCpfCandidato(this.seguranca.getCpfUsuario());
+        this.portugues1.setDataProva(this.seguranca.getData());
+        this.portugues1.setVagaPretentida(this.seguranca.getVaga());
+        this.portugues1.setNota(pontuacao);
+        this.portugues1.setSituacao(situacao);
+        
+        this.portugues1 = this.cadastroProvasService.salvarPort1(this.portugues1);
+      }
+      int pontuacao1 = 0;
+      int[] nota1 = new int[10];
+      for (int i = 0; i < nota1.length; i++)
+      {
+        if (((String)this.respostasMAT.get(i)).equals(this.gabaritoMAT.get(i))) {
+          pontuacao1++;
+        }
+        if (pontuacao1 >= 6) {
+          situacao = "Aprovado";
+        } else {
+          situacao = "Reprovado";
+        }
+        this.matematica1.setNomeCandidato(this.seguranca.getNomeUsuario());
+        this.matematica1.setCpfCandidato(this.seguranca.getCpfUsuario());
+        this.matematica1.setDataProva(this.seguranca.getData());
+        this.matematica1.setVagaPretentida(this.seguranca.getVaga());
+        this.matematica1.setNota(pontuacao1);
+        this.matematica1.setSituacao(situacao);
+        this.matematica1 = this.cadastroProvasService.salvarMate1(this.matematica1);
+      }
+      int pontuacao2 = 0;
+      int[] nota2 = new int[10];
+      for (int i = 0; i < nota2.length; i++)
+      {
+        if (((String)this.respostasINF.get(i)).equals(this.gabaritoINF.get(i))) {
+          pontuacao2++;
+        }
+        if (pontuacao2 >= 6) {
+          situacao = "Aprovado";
+        } else {
+          situacao = "Reprovado";
+        }
+        this.informatica1.setNomeCandidato(this.seguranca.getNomeUsuario());
+        this.informatica1.setCpfCandidato(this.seguranca.getCpfUsuario());
+        this.informatica1.setDataProva(this.seguranca.getData());
+        this.informatica1.setVagaPretentida(this.seguranca.getVaga());
+        this.informatica1.setNota(pontuacao2);
+        this.informatica1.setSituacao(situacao);
+        this.informatica1 = this.cadastroProvasService.salvarInfo1(this.informatica1);
+      }
+      this.digitacao.setNomeCandidato(this.seguranca.getNomeUsuario());
+      this.digitacao.setCpfCandidato(this.seguranca.getCpfUsuario());
+      this.digitacao.setDataProva(this.seguranca.getData());
+      this.digitacao.setVagaPretendida(this.seguranca.getVaga());
+      this.digitacao.setQntPalavras(this.quantidadePalavras);
+      this.digitacao.setTempoGasto("1:20");
+      this.digitacao = this.cadastroProvasService.salvarDigitado(this.digitacao);
+      limpar();
+      
+      FacesContext.getCurrentInstance().getExternalContext().redirect(
+        FacesContext.getCurrentInstance()
+        .getExternalContext().getRequestContextPath() + "/Obrigado.xhtml");
+    }
+    catch (IOException ex)
+    {
+      Logger.getLogger(CadastroProvasBean.class.getName()).log(Level.SEVERE, null, ex);
+    }
+  }
+  
+  public void contar()
+  {
+    this.quantidadePalavras = 0;
+    if ((this.digitacao.getTextoDigitado() != null) && (!this.digitacao.getTextoDigitado().isEmpty())) {
+      this.quantidadePalavras = 0;
+    }
+    for (int i = this.digitacao.getTextoDigitado().length() - 1; i >= 0; i--)
+    {
+      char letra = this.digitacao.getTextoDigitado().charAt(i);
+      if (letra != ' ') {
+        this.quantidadePalavras += 1;
+      }
+    }
+  }
+  
+  public TbProva1Portugues getPortuques1()
+  {
+    return this.portugues1;
+  }
+  
+  public void setPortuques1(TbProva1Portugues portugues1)
+  {
+    this.portugues1 = portugues1;
+  }
+  
+  public TbProva1Matematica getMatematica1()
+  {
+    return this.matematica1;
+  }
+  
+  public void setMatematica1(TbProva1Matematica matematica1)
+  {
+    this.matematica1 = matematica1;
+  }
+  
+  public TbProva1Informatica getInformatica1()
+  {
+    return this.informatica1;
+  }
+  
+  public void setInformatica1(TbProva1Informatica informatica1)
+  {
+    this.informatica1 = informatica1;
+  }
+  
+  public TbProvaDigitacao getDigitacao()
+  {
+    return this.digitacao;
+  }
+  
+  public void setDigitacao(TbProvaDigitacao digitacao)
+  {
+    this.digitacao = digitacao;
+  }
+  
+  public int getQuantidadePalavras()
+  {
+    return this.quantidadePalavras;
+  }
+  
+  public void setQuantidadePalavras(int quantidadePalavras)
+  {
+    this.quantidadePalavras = quantidadePalavras;
+  }
+}
