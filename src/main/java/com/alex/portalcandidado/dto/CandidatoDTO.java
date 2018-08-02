@@ -25,6 +25,9 @@ public class CandidatoDTO implements Serializable {
 	@NotEmpty(message = "Preenchimento obrigatório")
 	private String raca;
 	
+	@NotEmpty(message = "Preenchimento obrigatório")
+	private String sexo;
+	
 	@JsonDeserialize(using=CustomerDateAndTimeDeserialize.class)
 	private Date data_nascimento;
 	
@@ -180,6 +183,14 @@ public class CandidatoDTO implements Serializable {
 
 	public void setRaca(String raca) {
 		this.raca = raca;
+	}	
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 
 	public Date getData_nascimento() {

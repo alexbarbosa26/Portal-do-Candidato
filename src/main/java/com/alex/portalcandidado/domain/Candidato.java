@@ -33,6 +33,7 @@ public class Candidato implements Serializable {
 	@Column(unique=true)
 	private String email;
 	private String raca;
+	private String sexo;
 	
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date data_nascimento;
@@ -70,13 +71,14 @@ public class Candidato implements Serializable {
 		
 	}
 
-	public Candidato(Integer codigo, String nome, String email, String raca, Date data_nascimento, String idade,
+	public Candidato(Integer codigo, String nome, String email, String raca, String sexo, Date data_nascimento, String idade,
 			String naturalidade, EstadoCivil estado_civil) {
 		super();
 		this.codigo = codigo;
 		this.nome = nome;
 		this.email = email;
 		this.raca = raca;
+		this.sexo = sexo;
 		this.data_nascimento = data_nascimento;
 		this.idade = idade;
 		this.naturalidade = naturalidade;
@@ -113,6 +115,14 @@ public class Candidato implements Serializable {
 
 	public void setRaca(String raca) {
 		this.raca = raca;
+	}	
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
 	}
 
 	public Date getData_nascimento() {

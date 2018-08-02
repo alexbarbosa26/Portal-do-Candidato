@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.4.3.final using JasperReports Library version 6.4.3  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Relatorio" pageWidth="595" pageHeight="842" whenNoDataType="NoPages" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f6668819-53aa-448a-b84a-d5282e830de8">
 	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="240"/>
-	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DHO"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="479"/>
 	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="514"/>
@@ -29,6 +29,7 @@
 	dho.candidato.naturalidade AS Naturalidade,
 	dho.candidato.nome AS Nome,
 	dho.candidato.raca AS Raça,
+	dho.candidato.sexo AS Sexo,
 	dho.cidade.nome AS Cidade,
 	dho.estado.nome AS Estado,
 	dho.documentos.carteira_trab AS Carteira_Trabalho,
@@ -170,6 +171,10 @@ FROM dho.candidato
 	</field>
 	<field name="Raça" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.label" value="Raça"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="candidato"/>
+	</field>
+	<field name="Sexo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="Sexo"/>
 		<property name="com.jaspersoft.studio.field.tree.path" value="candidato"/>
 	</field>
 	<field name="Cidade" class="java.lang.String">
@@ -693,28 +698,28 @@ FROM dho.candidato
 				<textFieldExpression><![CDATA[$F{Nome}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="13" y="137" width="101" height="19" uuid="b0302929-610f-4c26-91c9-a140907851e0"/>
+				<reportElement x="13" y="137" width="93" height="19" uuid="b0302929-610f-4c26-91c9-a140907851e0"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Fonte de Recrutamento:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="114" y="137" width="134" height="19" uuid="cff7bd89-4c37-42df-afb8-5f05619dbdee"/>
+				<reportElement x="106" y="137" width="134" height="19" uuid="cff7bd89-4c37-42df-afb8-5f05619dbdee"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Fonte_Recrutamento}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="248" y="137" width="55" height="19" uuid="9bc803aa-c614-4777-98af-7b4cab298e68"/>
+				<reportElement x="248" y="137" width="60" height="19" uuid="9bc803aa-c614-4777-98af-7b4cab298e68"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Nome / Outros:]]></text>
 			</staticText>
 			<textField pattern="-">
-				<reportElement x="303" y="137" width="252" height="19" uuid="3e0c60b0-b696-4702-b0e8-351150602db9"/>
+				<reportElement x="308" y="137" width="246" height="19" uuid="3e0c60b0-b696-4702-b0e8-351150602db9"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
@@ -798,14 +803,14 @@ FROM dho.candidato
 				<textFieldExpression><![CDATA[$F{Numero}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="13" y="218" width="31" height="19" uuid="9fa0f8c2-cecd-44b5-9ef7-566f107647cc"/>
+				<reportElement x="13" y="218" width="26" height="19" uuid="9fa0f8c2-cecd-44b5-9ef7-566f107647cc"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Bairro:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="44" y="218" width="126" height="19" uuid="828cf9ed-7e73-495e-ada1-85b47cd236cd"/>
+				<reportElement x="39" y="218" width="126" height="19" uuid="828cf9ed-7e73-495e-ada1-85b47cd236cd"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
@@ -849,7 +854,7 @@ FROM dho.candidato
 					<property name="net.sf.jasperreports.export.pdf.tag.th"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="9" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Classificação da informação]]></text>
 			</staticText>
@@ -945,7 +950,7 @@ FROM dho.candidato
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Estado_Civil}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Estado_Civil}==1?"Casado":$F{Estado_Civil}==2?"Solteiro":$F{Estado_Civil}==3?"Viuvo":$F{Estado_Civil}==4?"Divorciado":"Separado"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="317" width="53" height="19" uuid="51acc7a4-98d0-416b-a900-63f3cfef78e4"/>
@@ -955,7 +960,7 @@ FROM dho.candidato
 				<text><![CDATA[Nome do Mãe:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="66" y="317" width="489" height="19" uuid="3b008be5-cf5d-4c12-89f9-ba7d31624a8b"/>
+				<reportElement x="68" y="317" width="486" height="19" uuid="3b008be5-cf5d-4c12-89f9-ba7d31624a8b"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
@@ -976,18 +981,18 @@ FROM dho.candidato
 				<textFieldExpression><![CDATA[$F{Nome_Pai}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="13" y="337" width="53" height="19" uuid="d0c822b9-e578-4f6d-983d-95fbc96a11ac"/>
+				<reportElement x="13" y="337" width="47" height="19" uuid="d0c822b9-e578-4f6d-983d-95fbc96a11ac"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
 				<text><![CDATA[Tem Filhos:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="66" y="337" width="198" height="19" uuid="1c678e88-b363-45c2-a70d-52b303fdcf60"/>
+				<reportElement x="60" y="337" width="198" height="19" uuid="1c678e88-b363-45c2-a70d-52b303fdcf60"/>
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Tem_Filhos}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Tem_Filhos}==1?"Sim":"Não"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="264" y="337" width="63" height="19" uuid="1e99a74a-9a46-4f8e-9bbc-3512cbc63cae"/>
@@ -1071,7 +1076,7 @@ FROM dho.candidato
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Disponibilidade_Sab_Dom}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Disponibilidade_Sab_Dom}==1?"Sim":"Não"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="13" y="417" width="215" height="19" uuid="e86257c9-5777-42af-aa3a-5858bafae164"/>
@@ -1085,7 +1090,7 @@ FROM dho.candidato
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Processo_neobpo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Processo_neobpo}==1?"Sim":"Não"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="263" y="418" width="77" height="19" uuid="3d4c39d4-fbaf-400f-a8f8-e8020c703b47"/>
@@ -1113,7 +1118,7 @@ FROM dho.candidato
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Trabalhou_Telemarkting}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Trabalhou_Telemarkting}==1?"Sim":"Não"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="231" y="438" width="56" height="19" uuid="fedd9361-d43d-4e92-9f2f-9a0561c35d37"/>
@@ -1155,7 +1160,7 @@ FROM dho.candidato
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Parentes_neobpo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Parentes_neobpo}==1?"Sim":"Não"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="204" y="457" width="41" height="19" uuid="d4b15eea-285d-4fad-a401-68b97c6dffbd"/>
@@ -1183,7 +1188,7 @@ FROM dho.candidato
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Portador_deficiencia}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Portador_deficiencia}==1?"Sim":"Não"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="204" y="478" width="27" height="19" uuid="a5768f6e-cd74-4e82-8dc2-535aa6f6032e"/>
@@ -1309,7 +1314,7 @@ FROM dho.candidato
 				<textElement verticalAlignment="Middle">
 					<font fontName="Arial" size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Pis_Pasep}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Pis_Pasep}==1?"Sim":"Não"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="444" y="537" width="14" height="19" uuid="95129fe0-68da-4ed4-abc7-5d7e49856460"/>
@@ -1550,14 +1555,14 @@ FROM dho.candidato
 				<textFieldExpression><![CDATA[$F{Nome_Curso_Pos}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="13" y="237" width="29" height="20" uuid="27302a28-2ef2-4165-b2f2-0abc96fceac3"/>
+				<reportElement x="13" y="237" width="24" height="20" uuid="27302a28-2ef2-4165-b2f2-0abc96fceac3"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Raça:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="42" y="237" width="513" height="20" uuid="6447c111-be49-40f9-ad44-757303855912"/>
+				<reportElement x="37" y="237" width="513" height="20" uuid="6447c111-be49-40f9-ad44-757303855912"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -1571,13 +1576,13 @@ FROM dho.candidato
 				<text><![CDATA[Você já trabalhou na TIVIT/Neobpo?]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="148" y="396" width="97" height="20" uuid="a45de62b-4c57-4d8c-95e5-2e4a61d2a615">
+				<reportElement x="147" y="396" width="97" height="20" uuid="a45de62b-4c57-4d8c-95e5-2e4a61d2a615">
 					<property name="com.jaspersoft.studio.element.name" value="tes"/>
 				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Trabalhou_Neobpo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Trabalhou_Neobpo}==1?"Sim":"Não"]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="245" y="397" width="309" height="19" uuid="d83f95ad-66f5-4d50-b01d-9381e68510cd"/>
@@ -1585,6 +1590,13 @@ FROM dho.candidato
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{Periodo_trabalhado_neo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="257" width="134" height="20" uuid="4d5e8ce7-282b-452b-b4b3-69cd33398df9"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Sexo}]]></textFieldExpression>
 			</textField>
 		</band>
 		<band height="802">
@@ -1629,14 +1641,14 @@ FROM dho.candidato
 				<imageExpression><![CDATA["C:\\temp\\logo.png"]]></imageExpression>
 			</image>
 			<staticText>
-				<reportElement x="460" y="17" width="94" height="29" uuid="d2c7db0d-07fb-45fe-986b-a5182a1490c5"/>
+				<reportElement x="461" y="17" width="94" height="29" uuid="d2c7db0d-07fb-45fe-986b-a5182a1490c5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="11"/>
 				</textElement>
-				<text><![CDATA[6]]></text>
+				<text><![CDATA[8]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="460" y="46" width="94" height="17" uuid="01f63b5b-2f56-4720-9696-e8cc124cb629">
+				<reportElement x="461" y="46" width="94" height="17" uuid="01f63b5b-2f56-4720-9696-e8cc124cb629">
 					<property name="net.sf.jasperreports.export.pdf.tag.h1"/>
 					<property name="net.sf.jasperreports.export.pdf.tag.th"/>
 				</reportElement>
@@ -1646,9 +1658,9 @@ FROM dho.candidato
 				<text><![CDATA[Página]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="326" y="17" width="134" height="29" uuid="458e6111-2455-4ec8-ba09-68b540b1f97e"/>
+				<reportElement x="327" y="17" width="134" height="29" uuid="458e6111-2455-4ec8-ba09-68b540b1f97e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[RHC-FOR-002-027]]></text>
 			</staticText>
@@ -1679,14 +1691,14 @@ FROM dho.candidato
 					<property name="net.sf.jasperreports.export.pdf.tag.th"/>
 				</reportElement>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="9" isBold="true"/>
+					<font fontName="Arial" size="10" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Classificação da informação]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="326" y="63" width="134" height="14" uuid="af52be7b-db70-4c67-9658-2e4bdd25f13a"/>
+				<reportElement x="327" y="63" width="134" height="14" uuid="af52be7b-db70-4c67-9658-2e4bdd25f13a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Interna]]></text>
 			</staticText>
@@ -1698,9 +1710,9 @@ FROM dho.candidato
 				<text><![CDATA[Solicitação de Emprego]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="460" y="63" width="94" height="14" uuid="278e8370-2075-4fd0-adb1-f6b7bca3189e"/>
+				<reportElement x="461" y="63" width="94" height="14" uuid="278e8370-2075-4fd0-adb1-f6b7bca3189e"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="11"/>
+					<font fontName="Arial" size="10"/>
 				</textElement>
 				<text><![CDATA[Vide Rodape]]></text>
 			</staticText>
@@ -1717,7 +1729,7 @@ FROM dho.candidato
 				<reportElement x="352" y="217" width="203" height="20" uuid="e6f0b7c7-20e7-4395-8238-8d3782b8e7a4"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="0" y="78" width="554" height="19" backcolor="#FFFFFF" uuid="0de69b2c-6ac0-428e-b309-cb304da206c9"/>
+				<reportElement x="0" y="77" width="554" height="20" backcolor="#FFFFFF" uuid="0de69b2c-6ac0-428e-b309-cb304da206c9"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="8" isBold="true"/>
 				</textElement>
@@ -2000,7 +2012,7 @@ FROM dho.candidato
 				<text><![CDATA[Motivo da Saída:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="15" y="359" width="65" height="16" uuid="d085e41a-148c-4926-95f1-5cc3ce982b9d"/>
+				<reportElement x="15" y="357" width="69" height="20" uuid="d085e41a-148c-4926-95f1-5cc3ce982b9d"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -2014,14 +2026,14 @@ FROM dho.candidato
 				<textFieldExpression><![CDATA[$F{Cargo_Pretendido}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="285" y="357" width="89" height="20" uuid="6d8e12de-88c6-4f04-8c2b-ecf8d8152718"/>
+				<reportElement x="285" y="357" width="75" height="20" uuid="6d8e12de-88c6-4f04-8c2b-ecf8d8152718"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<text><![CDATA[Pretensão Salarial: R$]]></text>
+				<text><![CDATA[Pretensão Salarial:]]></text>
 			</staticText>
 			<textField pattern="¤ #,##0.00">
-				<reportElement x="374" y="357" width="180" height="18" uuid="c81834b3-d172-4089-88a4-e3b04f109654"/>
+				<reportElement x="360" y="357" width="194" height="20" uuid="c81834b3-d172-4089-88a4-e3b04f109654"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
@@ -2039,7 +2051,7 @@ FROM dho.candidato
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Periodo_Experiencia}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Periodo_Experiencia}==1?"Sim":"Não"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="285" y="377" width="146" height="20" uuid="61d0d651-9b69-4436-b973-7d08787542e2"/>
@@ -2049,11 +2061,11 @@ FROM dho.candidato
 				<text><![CDATA[Pagou a Contribuição Sindical este Ano?]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="431" y="377" width="123" height="20" uuid="eb8f62ec-b080-467e-ab5f-3ac62e228a80"/>
+				<reportElement x="433" y="377" width="121" height="20" uuid="eb8f62ec-b080-467e-ab5f-3ac62e228a80"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{Pagou_Cont_Sindical}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$F{Pagou_Cont_Sindical}==1?"Sim":"Não"]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="15" y="397" width="128" height="36" uuid="efcfaf4b-4aec-4f6b-b108-1c0157942c8f"/>
